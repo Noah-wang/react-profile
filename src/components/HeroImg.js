@@ -17,12 +17,12 @@ const HeroImg = () => {
         <h1>This is My Profile</h1>
 
         <div>
-          <Link to="/project" className="btn">
-            Projects
+          <Link to="/About" className="btn">
+            About Me
           </Link>
 
           <Link to="/Contact" className="btn">
-            Contact
+            Contact Me
           </Link>
         </div>
 

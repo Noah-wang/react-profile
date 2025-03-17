@@ -6,7 +6,7 @@ import "./Earth.css";
 
 import CanvasLoader from "./Loader";
 
-const texture = "/Earth/textures/earth_map.jpg"
+const texture = "/Earth/textures/earth_map.jpg";
 
 // 将经纬度转换为3D坐标
 const latLongToVector3 = (lat, lng, radius) => {
@@ -26,12 +26,12 @@ const latLongToVector3 = (lat, lng, radius) => {
 const LocationMarker = ({
   latitude = 0,
   longitude = 0,
-  color = "#00ffff",
+  color = "#ff5555",
   height = 1,
   radius = 0.02, // 减小半径，使光柱更细
   glowIntensity = 1.5,
   animationSpeed = 0.02, // 稍微加快动画速度
-  earthRadius = 2
+  earthRadius = 2,
 }) => {
   const markerRef = useRef();
   const glowRef = useRef();
@@ -40,15 +40,13 @@ const LocationMarker = ({
   const position = latLongToVector3(latitude, longitude, earthRadius);
   const direction = position.clone().normalize();
   const quaternion = new THREE.Quaternion();
-  quaternion.setFromUnitVectors(
-    new THREE.Vector3(0, 1, 0),
-    direction
-  );
+  quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), direction);
 
   useFrame((state) => {
     if (glowRef.current && pointRef.current) {
       // 更平滑的呼吸效果
-      const pulseFactor = Math.sin(state.clock.elapsedTime * animationSpeed) * 0.2 + 0.8;
+      const pulseFactor =
+        Math.sin(state.clock.elapsedTime * animationSpeed) * 0.2 + 0.8;
       glowRef.current.scale.set(pulseFactor * 1.5, 1, pulseFactor * 1.5);
       glowRef.current.material.opacity = 0.4 * pulseFactor;
 
@@ -84,7 +82,9 @@ const LocationMarker = ({
 
       {/* 发光效果 - 更柔和 */}
       <mesh ref={glowRef}>
-        <cylinderGeometry args={[radius * 1.5, radius * 2, height * 0.7, 16, 1]} />
+        <cylinderGeometry
+          args={[radius * 1.5, radius * 2, height * 0.7, 16, 1]}
+        />
         <meshBasicMaterial
           color={color}
           transparent
@@ -115,13 +115,15 @@ const Earth = ({
   roughness = 0.5,
   normalScaleValue = 0.15,
   withLocationMarker = true,
+
   locationMarkerProps = {
-    latitude: 39.9042,
-    longitude: 116.4074,
+    latitude: 43.078972,
+    longitude: -89.389557,
     color: "#ff5555",
-    height: 1.2
+    height: 1.2,
   },
-  customTexturePath = null
+
+  customTexturePath = null,
 }) => {
   const earthRef = useRef();
   const groupRef = useRef();
@@ -131,15 +133,12 @@ const Earth = ({
   // 加载纹理
   useEffect(() => {
     const texturePath = customTexturePath || texture;
-    new THREE.TextureLoader().load(
-      texturePath,
-      (texture) => {
-        console.log("纹理加载成功:", texturePath);
-        enhanceTexture(texture);
-        setEarthTexture(texture);
-        setTextureLoaded(true);
-      }
-    );
+    new THREE.TextureLoader().load(texturePath, (texture) => {
+      console.log("纹理加载成功:", texturePath);
+      enhanceTexture(texture);
+      setEarthTexture(texture);
+      setTextureLoaded(true);
+    });
   }, [customTexturePath]);
 
   // 增强纹理质量
@@ -190,10 +189,7 @@ const Earth = ({
 
       {/* 位置标记 */}
       {withLocationMarker && (
-        <LocationMarker
-          {...locationMarkerProps}
-          earthRadius={2}
-        />
+        <LocationMarker {...locationMarkerProps} earthRadius={2} />
       )}
     </group>
   );
@@ -203,35 +199,32 @@ const EarthCanvas = ({
   width = "100%",
   height = "500px",
   withLocationMarker = true,
+
   locationMarkerProps = {
-    latitude: 39.9042,
-    longitude: 116.4074,
+    latitude: 43.078972,
+    longitude: -89.389557,
     color: "#ff5555",
-    height: 1.2
+    height: 1.2,
   },
   autoRotate = true,
   autoRotateSpeed = 0.5,
-  enableZoom = true,
+
   minDistance = 4,
   maxDistance = 15,
   cameraPosition = [0, 0, 8],
   transparent = true,
   earthProps = {},
   customTexturePath = null,
-  title = "Interactive Earth",
-  description = "Explore our beautiful planet with this interactive 3D globe visualization."
 }) => {
   const combinedEarthProps = {
     ...earthProps,
     withLocationMarker,
     locationMarkerProps,
-    customTexturePath
+    customTexturePath,
   };
 
   return (
     <div className="earth-card">
-      {title && <h2 className="earth-title">{title}</h2>}
-      {description && <p className="earth-description">{description}</p>}
       <div className="earth-container" style={{ width, height }}>
         <Canvas
           shadows
@@ -240,28 +233,24 @@ const EarthCanvas = ({
             preserveDrawingBuffer: true,
             antialias: true,
             alpha: transparent,
-            outputColorSpace: THREE.SRGBColorSpace
+            outputColorSpace: THREE.SRGBColorSpace,
           }}
           camera={{
             fov: 45,
             near: 0.1,
             far: 1000,
-            position: cameraPosition
+            position: cameraPosition,
           }}
         >
           <ambientLight intensity={0.8} />
-          <directionalLight
-            position={[5, 5, 5]}
-            intensity={1.2}
-            castShadow
-          />
+          <directionalLight position={[5, 5, 5]} intensity={1.2} castShadow />
           <pointLight position={[-10, -10, -10]} intensity={0.5} />
 
           <Suspense fallback={<CanvasLoader />}>
             <OrbitControls
               autoRotate={autoRotate}
               autoRotateSpeed={autoRotateSpeed}
-              enableZoom={enableZoom}
+              enableZoom={false}
               maxDistance={maxDistance}
               minDistance={minDistance}
               maxPolarAngle={Math.PI}

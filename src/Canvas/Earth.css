@@ -1,4 +1,8 @@
 .earth-card {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  outline-color: transparent;
   border-radius: 12px;
   padding: 10px;
   transition: transform 0.3s ease;
@@ -14,18 +18,3 @@
   overflow: hidden;
 }
 
-.earth-title {
-  color: #ffffff;
-  font-size: 1.25rem;
-  font-weight: 500;
-  margin-bottom: 0.5rem;
-  text-align: center;
-}
-
-.earth-description {
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 0.85rem;
-  text-align: center;
-  margin-bottom: 0.5rem;
-  line-height: 1.4;
-} 

@@ -1,20 +1,19 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import HeroImg2 from "../components/HeroImg2";
-import Earth from "../Canvas/Earth";
+import AboutContent from "../components/AboutContent";
+import Earth from "../Canvas/EarthBeijing";
 
 const About = () => {
   return (
-    <div>
-      {/* add NAVBAR component */}
-      <Navbar />
-      <HeroImg2 heading="ABOUT ME" text="This is my story" />
-
-      {/* 优化地球部分的容器 */}
-      <div className="about-earth-section">
-        <Earth />
-
-        <div className="earth-description"></div>
+    <div className="about">
+      <div className="about-hero">
+        <Navbar />
+        <HeroImg2 heading="ABOUT." text="Get to know me" />
+      </div>
+      
+      <div>
+        <AboutContent />
       </div>
     </div>
   );
