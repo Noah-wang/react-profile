@@ -1,6 +1,6 @@
 import React from "react";
-import Navbar from "../components/Navbar";
-import HeroImg2 from "../components/HeroImg2";
+import Navbar from "../../components/Navbar/Navbar";
+import HeroImg2 from "../../components/Hero/HeroImg2";
 
 const Contact = () => {
   return (

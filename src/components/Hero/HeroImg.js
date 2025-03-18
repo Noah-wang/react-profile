@@ -1,6 +1,6 @@
 import "./HeroImgStyles.css";
 import React from "react";
-import IntroImg from "../asset/2023.7.24西藏13.jpg";
+import IntroImg from "../../asset/2023.7.24西藏13.jpg";
 import { Link } from "react-router-dom";
 
 const HeroImg = () => {

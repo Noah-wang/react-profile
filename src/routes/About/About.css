@@ -1,0 +1,20 @@
+.about {
+  width: 100%;
+  min-height: 100vh;
+  padding: 0;
+  position: relative;
+  background: linear-gradient(
+    rgba(177, 179, 177, 0.663),
+    rgba(7, 63, 2, 0.412)
+  ), url('../../asset/2023.7.24西藏24.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: #ffffff;
+}
+
+/* 确保内容在背景上方显示 */
+.about > * {
+  position: relative;
+  z-index: 1;
+} 

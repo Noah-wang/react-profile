@@ -1,6 +1,6 @@
 import React from "react";
-import Navbar from "../components/Navbar";
-import HeroImg2 from "../components/HeroImg2.js";
+import Navbar from "../../components/Navbar/Navbar.js";
+import HeroImg2 from "../../components/Hero/HeroImg2.js";
 
 const Project = () => {
   return (

@@ -6,7 +6,29 @@ import "./Earth.css";
 
 import CanvasLoader from "./Loader";
 
-const texture = "/Earth/textures/earth_map.jpg";
+const texture = "/earth_map.jpg";
+
+// 地点配置
+const LOCATIONS = {
+  beijing: {
+    name: "北京",
+    coordinates: [39.9042, 116.4074],
+    color: "#ff5555",
+    rotationSpeed: 0.002
+  },
+  madison: {
+    name: "麦迪逊",
+    coordinates: [43.078972, -89.389557],
+    color: "#55ff55",
+    rotationSpeed: 0.0015
+  },
+  la: {
+    name: "洛杉矶",
+    coordinates: [34.069763, -118.445015],
+    color: "#5555ff", 
+    rotationSpeed: 0.001
+  }
+};
 
 // 将经纬度转换为3D坐标
 const latLongToVector3 = (lat, lng, radius) => {
@@ -26,7 +48,7 @@ const latLongToVector3 = (lat, lng, radius) => {
 const LocationMarker = ({
   latitude = 0,
   longitude = 0,
-  color = "#ff5555",
+  color = "#00ff00",
   height = 1,
   radius = 0.02, // 减小半径，使光柱更细
   glowIntensity = 1.5,
@@ -115,14 +137,12 @@ const Earth = ({
   roughness = 0.5,
   normalScaleValue = 0.15,
   withLocationMarker = true,
-
   locationMarkerProps = {
-    latitude: 43.078972,
-    longitude: -89.389557,
-    color: "#ff5555",
+    latitude: 39.9042,
+    longitude: 116.4074,
+    color: "#00ff00",
     height: 1.2,
   },
-
   customTexturePath = null,
 }) => {
   const earthRef = useRef();
@@ -195,29 +215,37 @@ const Earth = ({
   );
 };
 
+// 参数化的 EarthCanvas 组件，根据 location 决定显示哪个位置
 const EarthCanvas = ({
+  location = "beijing", // 默认北京
   width = "100%",
   height = "500px",
   withLocationMarker = true,
-
-  locationMarkerProps = {
-    latitude: 43.078972,
-    longitude: -89.389557,
-    color: "#ff5555",
-    height: 1.2,
-  },
   autoRotate = true,
   autoRotateSpeed = 0.5,
-
+  enableZoom = false,
   minDistance = 4,
   maxDistance = 15,
-  cameraPosition = [0, 0, 8],
+  cameraPosition = [0, 0, 10],
   transparent = true,
   earthProps = {},
   customTexturePath = null,
 }) => {
+  // 获取位置数据，如果没有找到对应的位置，使用北京
+  const locationData = LOCATIONS[location] || LOCATIONS.beijing;
+  
+  // 设置位置标记属性
+  const locationMarkerProps = {
+    latitude: locationData.coordinates[0],
+    longitude: locationData.coordinates[1],
+    color: locationData.color,
+    height: 1.2,
+  };
+
+  // 合并地球属性
   const combinedEarthProps = {
     ...earthProps,
+    rotationSpeed: locationData.rotationSpeed || 0.002,
     withLocationMarker,
     locationMarkerProps,
     customTexturePath,
@@ -250,7 +278,7 @@ const EarthCanvas = ({
             <OrbitControls
               autoRotate={autoRotate}
               autoRotateSpeed={autoRotateSpeed}
-              enableZoom={false}
+              enableZoom={enableZoom}
               maxDistance={maxDistance}
               minDistance={minDistance}
               maxPolarAngle={Math.PI}

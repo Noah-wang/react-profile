@@ -21,7 +21,8 @@ h1 {
 }
 
 .header-bg{
-    background-color: rgba(0,0,0,0.9);
+    /* background-color: rgba(0,0,0,0.9); */
+    backdrop-filter: blur(100px);
     transition: 0.3s;
 }
 .nav-menu{
