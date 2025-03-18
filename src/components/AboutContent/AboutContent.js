@@ -70,7 +70,7 @@ const AboutContent = () => {
         </section>
 
         {/* 经验部分 */}
-        <section>
+        <section className="experience-section">
           <Experience />
         </section>
 

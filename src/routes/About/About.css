@@ -14,15 +14,4 @@
   z-index: 0;
 }
 
-/* 确保页面内容足够长时，背景也能延伸 */
-html, body {
-    min-height: 100vh;
-    background-color: #0a192f; /* 与背景图片底部颜色相近的颜色 */
-}
-
-/* 确保内容在背景上方显示 */
-.about > * {
-    position: relative;
-    z-index: 1;
-}
 

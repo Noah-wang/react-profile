@@ -88,6 +88,11 @@
     margin-bottom: 2rem;
 }
 
+/* experience块 */
+.experience-section{
+    /* font-size: 1.5rem; */
+}
+
 /* 响应式布局 */
 @media screen and (max-width: 1024px) {
     .about-container {

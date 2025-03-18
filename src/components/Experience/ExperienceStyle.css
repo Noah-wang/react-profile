@@ -1,50 +1,85 @@
-/* Experience Section Styles */
+/* experience框 */
 .experience {
+    /* 内部布局 */
     padding: 2rem;
     background: rgba(255, 255, 255, 0.05);
     border-radius: 15px;
-    animation: fadeIn 0.8s ease-out forwards;
+    animation: fadeIn 1s ease-out forwards;
 }
 
+/* experience标题 */
 .experience h2 {
+    /* 标题大小 */
     font-size: 2.5rem;
+    /* 标题颜色 */
     color: #ddd60b;
+    /* 标题下空间 */
     margin-bottom: 2rem;
+    /* 居中对齐 */
     text-align: center;
+    /* 标题阴影 */
     text-shadow: 0 0 10px rgba(221, 214, 11, 0.595);
+    /* 字母间距 */
     letter-spacing: 0.1em;
 }
 
+/* experience项目 */
 .experience-item {
+    /* 项目背景颜色 */
     background: rgba(255, 255, 255, 0.05);
-    padding: 1.5rem;
+    /* 项目内框 */
+    padding: 2rem;
+    /* 项目下间距 */
     margin-bottom: 1.5rem;
+    /* 圆角 */
     border-radius: 10px;
-    transition: transform 0.3s ease;
+    /* 3D效果 */
+    transition: transform 0.7s ease;
 }
 
+/* 悬停效果 */
 .experience-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(221, 214, 11, 0.1);
+    box-shadow: 0 5px 15px rgba(221, 214, 11, 0.339);
 }
 
+/* 项目内h3标题 */
 .experience-item h3 {
+    /* 标题颜色 */
     color: #ffffff;
-    font-size: 1.5rem;
+    /* 标题大小 */
+    font-size: 2.5rem;
+    /* 标题下间距 */
     margin-bottom: 0.5rem;
+    /* 字母间距 */
     letter-spacing: 0.05em;
+    /* 阴影 */
+    text-shadow: 0 0 3px #ddd60b;
 }
 
+/* 项目内h4标题 */
 .experience-item h4 {
+    /* 标题颜色 */
     color: #ddd60b;
-    font-size: 1.2rem;
+    /* 标题大小 */
+    font-size: 1.5rem;
+    /* 标题下间距 */
     margin-bottom: 0.5rem;
+    /* 字母间距 */
     letter-spacing: 0.05em;
+    /* 阴影 */
+    text-shadow: 0 0 3px #ffffff6b;
 }
 
+/* 项目内文字 */
 .experience-item p {
+    /* 文字大小 */
+    font-size: 1.7rem;
+    /* 文字颜色 */
     color: #ffffff;
-    line-height: 1.6;
+    /* 文字行距 */
+    line-height: 1.4;
+    /* 字母间距 */
     letter-spacing: 0.03em;
 }
 

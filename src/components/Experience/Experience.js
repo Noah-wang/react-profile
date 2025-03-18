@@ -12,15 +12,17 @@ const Experience = () => {
         {EXPERIENCE.map((experience, index) => (
           <div key={index} className="experience-item">
             <div>
+              {/* 项目标题 */}
               <h3>{experience.title}</h3>
-              <h4>{experience.location}</h4>
-              <p>{experience.date}</p>
+              {/* 项目时间和地点 */}
+              <h4>
+                {experience.location} {experience.date}
+              </h4>
+              {/* 项目描述 */}
               <p>{experience.description}</p>
             </div>
-
           </div>
         ))}
-        
       </div>
     </div>
   );
