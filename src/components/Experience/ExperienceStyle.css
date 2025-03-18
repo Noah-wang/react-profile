@@ -1,0 +1,80 @@
+/* Experience Section Styles */
+.experience {
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+.experience h2 {
+    font-size: 2.5rem;
+    color: #ddd60b;
+    margin-bottom: 2rem;
+    text-align: center;
+    text-shadow: 0 0 10px rgba(221, 214, 11, 0.595);
+    letter-spacing: 0.1em;
+}
+
+.experience-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.experience-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(221, 214, 11, 0.1);
+}
+
+.experience-item h3 {
+    color: #ffffff;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.05em;
+}
+
+.experience-item h4 {
+    color: #ddd60b;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.05em;
+}
+
+.experience-item p {
+    color: #ffffff;
+    line-height: 1.6;
+    letter-spacing: 0.03em;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .experience h2 {
+        font-size: 2rem;
+    }
+    
+    .experience-item {
+        padding: 1rem;
+    }
+    
+    .experience-item h3 {
+        font-size: 1.3rem;
+    }
+    
+    .experience-item h4 {
+        font-size: 1.1rem;
+    }
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+} 

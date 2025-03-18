@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import "./AboutContentStyles.css";
-import Earth from "../Canvas/Earth/Earth";
+import Earth from "../../Canvas/Earth/Earth";
+import Experience from "../../components/Experience/Experience";
+import Project from "../../components/Project/Project";
+import Card from "../Card/Card";
 
-
-
-import Card from "./Card/Card";
 const AboutContent = () => {
   return (
     <>
@@ -15,7 +15,9 @@ const AboutContent = () => {
           <p className="about-text">你好！我叫王瑞泽，你可以叫我Noah</p>
         </section>
 
+        {/* 卡片部分 */}
         <section className="card-section">
+          {/* 北京卡片 */}
           <div>
             <Card
               frontContent={
@@ -26,13 +28,13 @@ const AboutContent = () => {
               }
               backContent={
                 <div>
-                  <Earth location='beijing' />
-                  <p>在这里，我开始了我的编程之旅</p>
+                  <Earth location="beijing" />
                 </div>
               }
             />
           </div>
 
+          {/* 麦迪逊卡片 */}
           <div>
             <Card
               frontContent={
@@ -43,13 +45,13 @@ const AboutContent = () => {
               }
               backContent={
                 <div>
-                  <Earth location='madison' />
-                  <p>在这里，我开始了我的编程之旅</p>
+                  <Earth location="madison" />
                 </div>
               }
             />
           </div>
 
+          {/* 洛杉矶卡片 */}
           <div>
             <Card
               frontContent={
@@ -60,12 +62,20 @@ const AboutContent = () => {
               }
               backContent={
                 <div>
-                  <Earth location='la' />
-                  <p>在这里，我开始了我的编程之旅</p>
+                  <Earth location="la" />
                 </div>
               }
             />
           </div>
+        </section>
+
+        {/* 经验部分 */}
+        <section>
+          <Experience />
+        </section>
+
+        <section>
+          <Project />
         </section>
       </div>
     </>

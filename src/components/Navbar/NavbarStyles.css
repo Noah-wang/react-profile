@@ -38,6 +38,7 @@ h1 {
 .nav-menu li a{
     font-size: 1.2rem;
     font-weight: 500;
+    letter-spacing: 0.08em;
 }
 
 .nav-menu li a:hover{

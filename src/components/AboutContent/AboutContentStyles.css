@@ -1,0 +1,110 @@
+.about-container {
+    /* 合适的宽度 */
+    max-width: 1200px;
+    /* 自动居中 */
+    margin: auto;
+    /* 内框边界 */
+    padding: 2rem;
+    /* 背景色 */
+    background: rgba(22, 21, 21, 0.594);
+    /* 阴影 */
+    box-shadow: 0 4px 30px rgba(17, 21, 13, 0.509);
+    /* 毛玻璃特效 */
+    backdrop-filter: blur(10px);
+    /* 边框圆角 */
+    border-radius: 20px;
+    /* 容器相对位置 */
+    position: relative;
+    /* 容器顶部距离 */
+    top: 100px;
+    /* 字体间距 */
+    letter-spacing: 0.02em;
+    /* 容器底部距离 */
+    margin-bottom: 300px;
+}
+
+/* Aboutme的框 */
+.about-section {
+    /* 文字居中 */
+    text-align: center;
+    /* 底部空间 */
+    margin-bottom: 4rem;
+    /* 内框边界 */
+    padding: 2rem;
+    /* 内框圆角 */
+    border-radius: 15px;
+    /* 文字内框背景 ⚠️SAVE or DELETE */
+    background: rgba(255, 255, 255, 0.05);
+    /* 文字内框动画 */
+    animation: fadeIn 1.5s ease-out forwards;
+}
+
+/* aboutme的标题 */
+.about-title {
+    /* 文字大小 */
+    font-size: 3rem;
+    /* 文字颜色 */
+    color: #ddd60b;
+    /* 文字阴影 */
+    text-shadow: 0 0 10px rgba(221, 214, 11, 0.595);
+    /* 文字间距 */
+    letter-spacing: 0.1em;
+}
+
+/* aboutme的文字 */
+.about-text {
+    /* 文字大小 */
+    font-size: 2cqh;
+    /* 文字颜色 */
+    color: #ffffff;
+    /* 文字阴影 */
+    text-shadow: 0 0 10px #f0e9109f;
+    /* 文字行距 */
+    line-height: 1.6;
+    /* 文字间距 */
+    letter-spacing: 0.05em;
+}
+
+/* 卡片框 */
+.card-section {
+    /* 布局 */
+    display: flex;
+    /* 间距相等 */
+    justify-content: space-evenly;
+    /* 卡片的间距 */
+    gap: 2rem;
+    /* 卡片底部距离 */
+    margin: 2rem;
+    /* 卡片自动换行 */
+    flex-wrap: wrap;
+    /* 卡片动画 */
+    animation: fadeIn 1.0s ease-out forwards;
+}
+
+/* 卡片框的div */
+.card-section>div {
+    flex: 0 1 300px;
+    min-width: 300px;
+    margin-bottom: 2rem;
+}
+
+/* 响应式布局 */
+@media screen and (max-width: 1024px) {
+    .about-container {
+        margin: 0 1rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .about-container {
+        padding: 1rem;
+    }
+
+    .about-title {
+        font-size: 2.5rem;
+    }
+
+    .about-text {
+        font-size: 1.2rem;
+    }
+}

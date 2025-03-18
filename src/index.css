@@ -14,10 +14,19 @@
   box-sizing: border-box;
   margin: 0;
   padding: 1;
+  letter-spacing: 0.03em;
+}
+
+html {
+  height: 100%;
 }
 
 body {
-  background-color: #000000;
+  min-height: 100%;
+  background-color: #0a192f; /* 深蓝色背景，与大多数图片底色协调 */
+  background-image: linear-gradient(to bottom, #0a192f, #112240);
+  background-attachment: fixed;
+  color: #cdd117;
 }
 
 h1,
@@ -28,6 +37,30 @@ a {
   text-decoration: none;
 }
 
+h1 {
+  letter-spacing: 0.08em;
+}
+
+h2, h3, h4 {
+  letter-spacing: 0.06em;
+}
+
+p {
+  letter-spacing: 0.04em;
+}
+
 ul {
   list-style: none;
+}
+
+/* 为所有页面容器添加最小高度，确保滚动时背景能够延伸 */
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 确保页面容器能够填充整个视口高度 */
+#root > div {
+  flex: 1;
 }
