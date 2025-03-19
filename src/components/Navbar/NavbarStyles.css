@@ -1,50 +1,83 @@
-.header{
+/* 导航栏样式 */
+.header {
+    /* 显示 */
     display: flex;
+    /* 左右分布 */
     justify-content: space-between;
+    /* 垂直居中 */
     align-items: center;
+    /* 内边距 */
     padding: 1rem;
+    /* 固定位置 */
     position: fixed;
+    /* 宽度 */
     width: 100%;
+    /* 高度 */
     height: 90px;
+    /* 层级 */
     z-index: 10;
 }
 
+/* 标题样式 */
 h1 {
+    /* 过渡动画 */
     transition: all 0.3s ease;
+    /* 颜色 */
     color: #cdd117;
+    /* 阴影 */
+    text-shadow: 0 0 10px rgba(221, 214, 11, 0.595);
 }
 
-.header h1:hover{
-    color: #fff; 
-    transform: scale(1.05); 
+/* 标题悬停 */
+.header h1:hover {
+    /* 颜色 */
+    color: #fff;
+    /* 动画 */
+    transform: scale(1.05);
+    /* 阴影 */
     text-shadow: 0 0 8px rgba(255, 255, 255, 0.843);
 }
 
-.header-bg{
-    /* background-color: rgba(0,0,0,0.9); */
+/* 背景样式 */
+.header-bg {
+    /* 毛玻璃特效 */
     backdrop-filter: blur(100px);
-    transition: 0.3s;
+    /* 动画 */
+    transition: 0.5s;
 }
-.nav-menu{
+
+/* 导航菜单样式 */
+.nav-menu {
+    /* 显示 */
     display: flex;
+
 }
 
-.nav-menu li{
+/* 导航菜单项样式 */
+.nav-menu li {
+    /* 内边距 */
     padding: 0 1rem;
-        transition: all 0.3s ease;
-        color: #cdd117;
+    /* 过渡动画 */
+    transition: all 0.3s ease;
 }
 
-.nav-menu li a{
-    font-size: 1.2rem;
-    font-weight: 500;
+.nav-menu li a {
+    /* 字体大小 */
+    font-size: 1.5rem;
+    /* 字间距 */
     letter-spacing: 0.08em;
+    /* 显示 */
+    display: inline-block;
 }
 
-.nav-menu li a:hover{
-    color: #fff; 
-    transform: scale(1.05); 
+/* 导航菜单项悬停 */
+.nav-menu li a:hover {
+    /* 颜色 */
+    color: #fff;
+    /* 阴影 */
     text-shadow: 0 0 8px rgba(255, 255, 255, 0.843);
+    /* 动画 */
+    transform: scale(1.05);
 }
 
 /* Hide hamburger menu on large screens by default */
@@ -53,107 +86,122 @@ h1 {
 }
 
 /* for smaller screen */
-@media screen and (max-width: 1040px){
-    .nav-menu{
+@media screen and (max-width: 1040px) {
+
+    /* 汉堡菜单样式 */
+    .nav-menu {
+        /* 显示 */
+        display: flex;
+        /* 水平分布 */
         flex-direction: column;
+        /* 水平居中 */
         justify-content: center;
+        /* 垂直居中 */
         align-items: center;
+        /* 宽度 */
         width: 100%;
+        /* 高度 */
         height: 100vh;
-        backdrop-filter: blur(5px); 
-        -webkit-backdrop-filter: blur(5px); 
+        /* 毛玻璃特效 */
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        /* 背景 */
         background: rgba(0, 0, 0, 0.7);
+        /* 绝对定位 */
         position: absolute;
+        /* 顶部 */
         top: 0;
+        /* 左侧 */
         left: -100%;
         /* FIXED: layer problem*/
-        z-index: 10; 
+        z-index: 10;
         transition: 0.3s;
+
     }
 
-    .nav-menu.active{
+    /* 激活汉堡菜单动画 */
+    .nav-menu.active {
+        /* 左侧 */
         left: 0;
+        /* 动画 */
         animation: slideIn 0.5s ease forwards;
-  
+
     }
-    
+
     .nav-menu.active li:nth-child(1) {
         animation: fadeInUp 0.4s ease forwards 0.2s;
     }
-    
+
     .nav-menu.active li:nth-child(2) {
         animation: fadeInUp 0.4s ease forwards 0.3s;
     }
-    
+
     .nav-menu.active li:nth-child(3) {
         animation: fadeInUp 0.4s ease forwards 0.4s;
     }
-    
-    .nav-menu.active li:nth-child(4) {
-        animation: fadeInUp 0.4s ease forwards 0.5s;
-    }
-    
-    .nav-menu li{
+
+    /* 汉堡里的列表 */
+    .nav-menu li {
         /* add this to make the menu empty at first */
         opacity: 0;
-
         padding: 1rem 0;
     }
 
-    .nav-menu li a{
-        font-size: 2rem;
+    /* 汉堡里的文字样式 */
+    .nav-menu li a {
+        font-size: 6rem;
+        margin-bottom: 2rem;
     }
 
-    .hamburger{
+    /* 汉堡菜单样式 */
+    .hamburger {
+        /* 显示 */
         display: initial;
+        /* 层级 */
         z-index: 11;
+        /* 光标 */
         cursor: pointer;
+        /* 过渡动画 */
         transition: transform 0.3s ease;
     }
 
-    .hamburger:hover{
+    /* 汉堡菜单悬停 */
+    .hamburger:hover {
         transform: scale(1.1);
     }
 
-    .hamburger:hover svg{
+    /* 汉堡菜单悬停 */
+    .hamburger:hover svg {
         color: #fff !important;
-        
     }
 
+
+
+
+    /* 动画 */
     /* 为导航菜单添加滑入动画 */
     @keyframes slideIn {
-      0% {
-        transform: translateX(-100%);
-        opacity: 0;
-      }
-      100% {
-        transform: translateX(0);
-        opacity: 1;
-      }
+        0% {
+            transform: translateX(-100%);
+            opacity: 0;
+        }
+
+        100% {
+            transform: translateX(0);
+            opacity: 1;
+        }
     }
-    
+
     /* 为导航菜单项添加淡入上浮动画 */
     @keyframes fadeInUp {
-      0% {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    
-    /* 菜单激活时的脉冲动画 */
-    @keyframes pulse {
-      0% {
-        transform: scale(1);
-      }
-      50% {
-        transform: scale(1.05);
-      }
-      100% {
-        transform: scale(1);
-      }
+        0% {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 }

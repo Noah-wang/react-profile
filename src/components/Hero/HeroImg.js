@@ -8,14 +8,16 @@ const HeroImg = () => {
     <div className="hero">
 
       <div className="mask">
-        {/* add front Img */}
+        {/* 背景图片 */}
         <img className="into-img" src={IntroImg} alt="IntroImg" />
       </div>
 
+      {/* 内容 add 3D words⚠️*/}
       <div className="content">
         <p>Hi, I'm Noah Wang</p>
         <h1>This is My Profile</h1>
 
+        {/* 导航按钮 */}
         <div>
           <Link to="/About" className="btn">
             About Me

@@ -2,8 +2,11 @@
 .experience {
     /* 内部布局 */
     padding: 2rem;
+    /* 背景色 */
     background: rgba(255, 255, 255, 0.05);
+    /* 圆角 */
     border-radius: 15px;
+    /* 动画 */
     animation: fadeIn 1s ease-out forwards;
 }
 

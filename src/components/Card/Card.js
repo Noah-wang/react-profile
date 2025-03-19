@@ -6,7 +6,7 @@ import "./CardStyle.css";
 const Card = ({ frontContent, backContent }) => {
     const [isFlipped, setIsFlipped] = useState(false);
 
-
+    // 卡片状态
     const handleFlip = () => {
         if (!isFlipped) {
             setIsFlipped(true);
@@ -15,6 +15,7 @@ const Card = ({ frontContent, backContent }) => {
 
     return (
         <div className="card-container">
+            {/* 卡片样式 */}
             <div className={`card ${isFlipped ? 'flipped' : ''}`}>
                 {/* 正面 */}
                 <div
