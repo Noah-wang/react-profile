@@ -2,46 +2,53 @@ import "./HeroImgStyles.css";
 import React, { useState, useEffect } from "react";
 import IntroImg from "../../asset/2023.7.24西藏13.jpg";
 import { Link } from "react-router-dom";
+import { type } from "@testing-library/user-event/dist/type";
+
 
 const HeroImg = () => {
-  // 定义要展示的文字和当前状态
+  //defile the text
   const [text, setText] = useState("");
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const rotateText = ["Hi, I'm Noah Wang", "Welcome to My Profile"];
   const [isDeleting, setIsDeleting] = useState(false);
-  const [loopNum, setLoopNum] = useState(0);
-  const [typingSpeed, setTypingSpeed] = useState(150);
-
-  // 要循环展示的文字数组
-  const toRotate = ["Hi, I'm Noah Wang", "Welcome to My Profile"];
-  const period = 2000; // 展示文字的时间
+  const [typeSpeed, setTypeSpeed] = useState(100);
 
   useEffect(() => {
-    let ticker = setInterval(() => {
+    const ticker = setInterval(() => {
       tick();
-    }, typingSpeed);
+    }, typeSpeed);
 
-    return () => { clearInterval(ticker) };
-    // eslint-disable-next-line
-  }, [text, isDeleting, loopNum, typingSpeed]);
+    return () => clearInterval(ticker);
+  }, [text, currentIndex, isDeleting, typeSpeed]);
 
   const tick = () => {
-    let i = loopNum % toRotate.length;
-    let fullText = toRotate[i];
-    let updatedText = isDeleting ? fullText.substring(0, text.length - 1) : fullText.substring(0, text.length + 1);
+    const fullTxt = rotateText[currentIndex];
 
-    setText(updatedText);
-
+    // 文字单个减少或增加
     if (isDeleting) {
-      setTypingSpeed(prevSpeed => prevSpeed / 1.2);
+      setText(fullTxt.substring(0, text.length - 1));
+    } else {
+      setText(fullTxt.substring(0, text.length + 1));
     }
 
-    if (!isDeleting && updatedText === fullText) {
-      setIsDeleting(true);
-      setTypingSpeed(period);
-    } else if (isDeleting && updatedText === '') {
-      setIsDeleting(false);
-      setLoopNum(loopNum + 1);
-      setTypingSpeed(150);
+    // 删除时快一点
+    if (isDeleting) {
+
+      setTypeSpeed(typeSpeed / 1.5);
     }
+
+    // 改变删除和增加状态
+    if (!isDeleting && text === fullTxt) {
+      setTypeSpeed(1000);
+      setIsDeleting(true);
+    } else if (isDeleting && text === '') {
+      setIsDeleting(false);
+      setCurrentIndex(currentIndex + 1);
+      setTypeSpeed(300);
+    }
+
+
+
   }
 
   return (
@@ -52,7 +59,7 @@ const HeroImg = () => {
         <img className="into-img" src={IntroImg} alt="IntroImg" />
       </div>
 
-      {/* 内容 add 3D words*/}
+      {/* 内容 3D words*/}
       <div className="content">
         <h1>
           <span className="typing-text">{text}</span>
