@@ -52,11 +52,18 @@
 /* 标题 */
 .hero .content h1 {
   /* 标题大小 */
-  font-size: 5rem;
+  font-size: 4rem;
   /* 标题颜色 */
   color: #dbf723;
   /* 标题下间距 */
   margin-bottom: 2rem;
+  /* 发光效果 */
+  animation: glowPulse 3s ease-in-out infinite;
+  /* 最小高度，防止文字变化时布局抖动 */
+  min-height: 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* 副标题 */
@@ -67,6 +74,58 @@
   color: #dbf723;
   /* 副标题下间距 */
   margin-bottom: 1rem;
+}
+
+/* 动态打字文字样式 */
+.typing-text {
+  display: inline-block;
+  font-weight: bold;
+  min-width: 1ch;
+}
+
+/* 光标样式 */
+.cursor {
+  /* 显示方式 */
+  display: inline-block;
+  /* 宽度 */
+  width: 7px;
+  /* 高度 */
+  height: 5rem;
+  /* 背景颜色 */
+  background-color: #dbf723;
+  /* 左侧间距 */
+  margin-left: 10px;
+  /* 动画 */
+  animation: blink 1s infinite;
+  align-self: center;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes glowPulse {
+  0% {
+    text-shadow: 0 0 10px rgba(221, 214, 11, 0.3);
+  }
+
+  50% {
+    text-shadow: 0 0 25px rgba(221, 214, 11, 0.7);
+  }
+
+  100% {
+    text-shadow: 0 0 10px rgba(221, 214, 11, 0.3);
+  }
 }
 
 /* button样式 */
@@ -121,5 +180,21 @@
 @media (min-width: 768px) {
   .btn {
     padding: 13px 50px 13px;
+  }
+}
+
+/* 响应式调整 */
+@media screen and (max-width: 640px) {
+  .hero .content h1 {
+    font-size: 2.5rem;
+    min-height: 4rem;
+  }
+
+  .hero .content p {
+    font-size: 1.5rem;
+  }
+
+  .cursor {
+    height: 2.5rem;
   }
 }

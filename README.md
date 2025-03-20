@@ -1,70 +1,110 @@
-# Getting Started with Create React App
+# React Portfolio Website (中文版)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+一个使用React.js构建的个人作品集网站，融合了现代设计和交互效果。本项目展示了前端开发能力，包括响应式设计、动画效果和3D元素的集成。
 
-## Available Scripts
+## 🌟 项目特色
 
-In the project directory, you can run:
+- **响应式设计**：在各种设备上都能完美展示
+- **现代UI/UX**：简洁美观的用户界面和流畅的用户体验
+- **3D地球模型**：使用Three.js实现的交互式地球模型
+- **动画效果**：平滑的过渡、悬停和滚动动画
+- **卡片组件**：可翻转的卡片展示内容
+- **自适应导航栏**：移动设备上的汉堡菜单
+
+## 📋 页面构成
+
+### 首页 (Home)
+展示个人简介和直观导航，欢迎访问者了解更多。
+
+### 关于我 (About)
+- 个人简介
+- 学习和工作经历展示（北京、麦迪逊、洛杉矶）
+- 使用Three.js实现的3D地球模型
+- 个人经历时间线
+
+### 项目展示 (Projects)
+展示个人开发的项目作品集。
+
+### 联系方式 (Contact)
+提供联系信息和联系表单。
+
+## 🛠️ 技术栈
+
+- **前端框架**：React.js
+- **3D库**：Three.js, React Three Fiber
+- **样式**：CSS3, Flexbox
+- **动画**：CSS transitions & animations
+- **导航**：React Router
+- **响应式设计**：媒体查询
+
+## 🎨 设计特点
+
+- **色彩方案**：以深色背景搭配明亮的强调色
+- **排版**：清晰易读的字体，适当的字母间距
+- **卡片设计**：具有翻转效果的信息卡片
+- **布局**：使用flexbox实现灵活布局
+- **背景**：使用半透明效果和模糊处理
+
+## 📱 响应式功能
+
+- 桌面、平板和移动设备的自适应布局
+- 在小屏幕设备上转换为汉堡菜单的导航栏
+- 根据屏幕大小调整内容尺寸和排列
+
+## ✨ 自定义组件
+
+- **导航栏**：响应式导航菜单，带有平滑过渡效果
+- **地球模型**：可自定义的3D地球组件，支持不同位置标记
+- **卡片组件**：可翻转的卡片，正面显示标题，背面展示详情
+- **体验时间线**：展示教育和工作经历
+
+## 🚀 未来计划
+
+- 添加深色/浅色主题切换
+- 集成更多互动式3D元素
+- 优化移动设备性能
+- 添加多语言支持
+
+## 📝 项目结构
+
+```
+src/
+├── components/          # 组件文件夹
+│   ├── AboutContent/    # 关于页面内容组件
+│   ├── Card/            # 卡片组件
+│   ├── Experience/      # 经历时间线组件
+│   ├── Hero/            # 英雄区组件
+│   └── Navbar/          # 导航栏组件
+├── Canvas/              # Canvas相关组件
+│   ├── Earth/           # 地球模型组件
+│   └── Backgrounds/     # 背景效果组件
+├── routes/              # 路由页面组件
+│   ├── About/           # 关于页面
+│   ├── Contact/         # 联系页面
+│   ├── Home/            # 首页
+│   └── Project/         # 项目页面
+├── asset/               # 静态资源
+├── Constant/            # 常量数据
+├── App.js               # 应用主组件
+└── index.js             # 入口文件
+```
+
+## 💻 可用脚本
+
+在项目目录中，您可以运行：
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+在开发模式下运行应用程序。\
+打开 [http://localhost:3000](http://localhost:3000) 在浏览器中查看。
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+当您进行更改时，页面将重新加载。\
+您也可能在控制台中看到任何lint错误。
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+构建生产版本到 `build` 文件夹。\
+它正确地捆绑了生产模式中的React，并优化了构建以获得最佳性能。
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+构建被压缩，文件名包含哈希值。\
+您的应用已准备好部署！
