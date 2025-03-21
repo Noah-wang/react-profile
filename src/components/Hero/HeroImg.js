@@ -33,18 +33,17 @@ const HeroImg = () => {
 
     // 删除时快一点
     if (isDeleting) {
-
       setTypeSpeed(typeSpeed / 1.5);
     }
 
     // 改变删除和增加状态
     if (!isDeleting && text === fullTxt) {
-      setTypeSpeed(1000);
+      setTypeSpeed(3000);
       setIsDeleting(true);
     } else if (isDeleting && text === '') {
       setIsDeleting(false);
-      setCurrentIndex(currentIndex + 1);
-      setTypeSpeed(300);
+      setCurrentIndex((currentIndex + 1) % rotateText.length);
+      setTypeSpeed(500);
     }
 
 

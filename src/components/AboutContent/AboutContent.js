@@ -74,7 +74,8 @@ const AboutContent = () => {
           <Experience />
         </section>
 
-        <section>
+        {/* 项目部分 */}
+        <section className="project-section">
           <Project />
         </section>
       </div>

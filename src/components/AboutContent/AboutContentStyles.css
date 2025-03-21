@@ -108,3 +108,54 @@
         font-size: 1.2rem;
     }
 }
+
+/* 项目部分 */
+.project-section {
+    margin-top: 4rem;
+    animation: fadeIn 1.5s ease-out forwards;
+}
+
+/* 在AboutContent环境下的项目容器 */
+.about-container .project-container {
+    margin: 0;
+    padding: 0;
+}
+
+/* 在AboutContent环境下的项目标题 */
+.about-container .project-heading {
+    color: #ddd60b;
+    text-shadow: 0 0 10px rgba(221, 214, 11, 0.595);
+    letter-spacing: 0.1em;
+    background: none;
+    -webkit-text-fill-color: #ddd60b;
+}
+
+/* 在AboutContent环境下的项目卡片 */
+.about-container .project-card {
+    background: rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-container .project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(221, 214, 11, 0.2);
+}
+
+/* 项目链接按钮 */
+.about-container .project-link-btn {
+    background: linear-gradient(90deg, #ddd60b, #f0e910);
+    color: #000;
+}
+
+/* 淡入动画 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

@@ -1,16 +1,30 @@
+// 导入图片
+import blogImg from "../asset/blog.png";
+import priceScoutImg from "../asset/PriceScout.png";
+import witaiImg from "../asset/witai.jpg";
+
 export const PROJECT = [
   {
     title: "个人博客",
-    location: "麦迪逊，威斯康星",
+    image: blogImg,
     link: "https://noah-wang.github.io/",
-    date: "2022.6 - 至今",
-    points: [
-      "使用现代网页开发框架构建和维护个人博客",
-      "分享计算机科学主题、摄影和个人经验的见解。",
-      "开发前端技能（HTML、CSS、JavaScript）和后端网页开发，包括网站部署。",
-    ],
+    description:
+      "使用现代网页开发框架构建和维护个人博客。分享计算机科学主题、摄影和个人经验的见解。开发前端技能，框架使用，包括网站部署。",
   },
+  {
+    title: "PriceScout 购物助手",
+    image: priceScoutImg,
+    link: "https://price-scout.vercel.app",
+    description: "一站式购物搜索工具，只需输入一次搜索词，选择目标购物网站，自动打开多个网站并显示搜索结果，大幅提高比价和购物效率。",
+  },
+  {
+    title: "BadgerChat AI",
+    image: witaiImg,
+    link: "https://github.com/Noah-wang/BadgerChat-AI",
+    description: "基于 Wit.AI 的智能购物聊天机器人，让用户通过自然语言对话实现商品浏览、购物车管理和结账流程。",
+  }
 ];
+
 export const EXPERIENCE = [
   {
     title: "海信集团有限公司",
@@ -38,7 +52,7 @@ export const EXPERIENCE = [
     date: "2023.9 - 2024.12",
     description:
       "使用 C # 开发游戏机制，包括角色移动、跳跃和环境互动, 创建游戏内收集系统，通过互动书籍增强游戏世界观，为玩家提供游戏背景故事。",
-  }, 
+  },
   {
     title: '"Save America" 活动创始人',
     location: "北京，中国",
