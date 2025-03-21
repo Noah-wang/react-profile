@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "./AboutContentStyles.css";
 import Earth from "../../Canvas/Earth/Earth";
-import Experience from "../../components/Experience/Experience";
-import Project from "../../components/Project/Project";
-import Card from "../Card/Card";
+import Experience from "../Experience/Experience";
+import Project from "../Project/Project";
+import Card from "../../components/Card/Card";
 
 const AboutContent = () => {
   return (

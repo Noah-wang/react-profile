@@ -24,7 +24,7 @@ const Experience = () => {
   // 创建hover效果
   const handleMouseEnter = (index) => {
     setActiveEffectIndex(index);
-    
+
     // 获取当前卡片的实际尺寸
     if (cardRefs.current[index]) {
       const card = cardRefs.current[index];
@@ -37,7 +37,7 @@ const Experience = () => {
   const handleMouseLeave = () => {
     // 不立即清除粒子，而是只取消激活状态
     setActiveEffectIndex(null);
-    
+
     // 粒子会在动画完成后自然消失
     // 不立即清除粒子数组
   };
@@ -79,7 +79,7 @@ const Experience = () => {
       const timer = setTimeout(() => {
         setParticles([]);
       }, maxDuration * 1000 + 500); // 转换为毫秒并添加额外缓冲
-      
+
       return () => clearTimeout(timer);
     }
   }, [activeEffectIndex, particles]);

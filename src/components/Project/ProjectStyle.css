@@ -1,77 +1,101 @@
 /* 项目容器 */
 .project-container {
+    background: rgba(255, 255, 255, 0.05);
+    /* 最大宽度 */
     max-width: 1200px;
+    /* 水平居中 */
     margin: 5rem auto;
-    padding: 0 2rem;
+    /* 内边距 */
+    padding: 2rem;
+    /* 相对定位 */
     position: relative;
+    /* 动画 */
+    animation: fadeIn 1s ease-out forwards;
+    /* 圆角 */
+    border-radius: 15px;
+    /* 相对定位，用于粒子容器 */
+    position: relative;
+    /* 在窄屏幕上允许滚动 */
+    overflow-x: auto;
 }
 
 /* 项目标题 */
 .project-heading {
+    padding: 2rem;
+    /* 文本居中 */
     text-align: center;
-    margin-bottom: 3rem;
+    /* 字体大小 */
     font-size: 2.5rem;
-    background: linear-gradient(90deg, #00dbde, #fc00ff);
-    -webkit-text-fill-color: transparent;
 }
 
 /* 项目列表 */
 .project-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 2rem;
+    margin: 2rem;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 1rem;
+   
 }
 
 /* 项目卡片 */
 .project-card {
+    /* 背景颜色 */
     background-color: rgba(255, 255, 255, 0.05);
+    /* 圆角 */
     border-radius: 15px;
+    /* 溢出隐藏 */
     overflow: hidden;
+    /* 阴影 */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    /* 过渡效果 */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* 弹性布局 */
     display: flex;
+    /* 弹性布局方向 */
     flex-direction: column;
-    height: 500px;
-    /* 固定卡片高度 */
+    /* 固定宽度和高度 */
+    height: 550px;
+    width: 300px;
+    /* 防止卡片被压缩 */
+    flex-shrink: 0;
+    /* 相对定位 */
     position: relative;
+    /* 层级 */
     z-index: 1;
-}
-
-.project-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
 /* 项目图片容器 */
 .project-image-container {
+    /* 相对定位 */
     position: relative;
+    /* 高度 */
     height: 220px;
-    overflow: hidden;
-    flex-shrink: 0;
-    /* 防止图片容器被压缩 */
 }
 
 /* 项目图片 */
 .project-image {
+    /* 大小 */
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    /* 过渡 */
     transition: transform 0.5s ease;
-    cursor: pointer;
-    /* 鼠标变为手型，提示可点击 */
 }
 
 /* 图片悬停效果 */
 .project-image:hover {
     transform: scale(1.1);
-    /* 图片放大效果 */
+
 }
 
 /* 项目内容 */
 .project-content {
+    /* 内边距 */
     padding: 1.5rem;
+    /* 弹性布局 */
     display: flex;
+    /* 弹性布局方向 */
     flex-direction: column;
+    /* 弹性布局填充剩余空间 */
     flex-grow: 1;
     /* 内容区域填充剩余空间 */
     position: relative;
@@ -80,53 +104,44 @@
 
 /* 项目标题 */
 .project-title {
+    /* 字体大小 */
     font-size: 1.5rem;
+    /* 下边距 */
     margin-bottom: 0.5rem;
+    /* 颜色 */
     color: #ffffff;
 }
 
 /* 项目描述 */
 .project-description {
+    /* 颜色 */
     color: #cccccc;
-    font-size: 1rem;
-    margin-bottom: 1.5rem;
+    /* 字体大小 */
+    font-size: 1.2rem;
+    /* 下边距 */
+    margin-bottom: 1rem;
+    /* 行高 */
     line-height: 1.6;
-    /* 如果描述过长，允许滚动 */
-    max-height: 120px;
-    overflow-y: auto;
-    /* 自定义滚动条样式 */
-    scrollbar-width: thin;
-    scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
-}
 
-/* 为WebKit浏览器自定义滚动条 */
-.project-description::-webkit-scrollbar {
-    width: 6px;
-}
-
-.project-description::-webkit-scrollbar-thumb {
-    background-color: rgba(255, 255, 255, 0.3);
-    border-radius: 3px;
 }
 
 /* 项目链接按钮 */
 .project-link-btn {
-    display: inline-block;
-    background: linear-gradient(90deg, #00dbde, #fc00ff);
-    color: #ffffff;
-    padding: 0.7rem 1.5rem;
+    /* 内边距 */
+    padding: 0.7rem;
+    /* 圆角 */
     border-radius: 25px;
-    text-decoration: none;
+    /* 文本装饰 */
     font-weight: bold;
     transition: transform 0.2s ease;
-    position: absolute;
     /* 绝对定位 */
-    bottom: 1.5rem;
+    position: absolute;
     /* 距底部固定距离 */
+    bottom: 2.5rem;
+    /* 距左侧固定距离 */
     left: 50%;
     /* 水平居中 */
     transform: translateX(-50%);
-    /* 水平居中对齐 */
 }
 
 .project-link-btn:hover {
@@ -141,8 +156,10 @@
     left: 0;
     width: 100%;
     height: 100%;
-    pointer-events: none; /* 确保粒子不会干扰交互 */
-    z-index: 0; /* 在卡片下方 */
+    pointer-events: none;
+    /* 确保粒子不会干扰交互 */
+    z-index: 0;
+    /* 在卡片下方 */
 }
 
 /* Project粒子 */
@@ -164,12 +181,14 @@
         transform: scale(0) translate(0, 0);
     }
 
-    20% { /* 提前完成淡入 */
+    20% {
+        /* 提前完成淡入 */
         opacity: 1;
         transform: scale(1) translate(0, 0);
     }
-    
-    80% { /* 保持可见状态更长时间，并添加漂移 */
+
+    80% {
+        /* 保持可见状态更长时间，并添加漂移 */
         opacity: 0.8;
         transform: scale(1) translate(var(--drift-x, 0), var(--drift-y, 0));
     }
@@ -187,16 +206,40 @@
 
 /* 响应式设计 */
 @media screen and (max-width: 768px) {
+    .project-container {
+        /* 确保在移动设备上有适当的内边距 */
+        padding: 1rem;
+    }
+
     .project-list {
-        grid-template-columns: 1fr;
+        /* 在移动设备上增加滚动指示 */
+        padding-bottom: 1.5rem;
+        /* 增加滚动条上方空间 */
+        margin-bottom: 0.5rem;
+        /* 使滚动更平滑 */
+        scroll-behavior: smooth;
+        /* 隐藏滚动条但保留功能 */
+        scrollbar-width: thin;
+        scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+    }
+
+    /* WebKit浏览器的滚动条样式 */
+    .project-list::-webkit-scrollbar {
+        height: 4px;
+    }
+
+    .project-list::-webkit-scrollbar-thumb {
+        background-color: rgba(255, 255, 255, 0.3);
+        border-radius: 2px;
+    }
+
+    .project-card {
+        /* 移动设备上稍窄和稍矮一些，但保持比例 */
+        width: 300px;
+        height: 450px;
     }
 
     .project-image-container {
         height: 180px;
-    }
-
-    .project-card {
-        height: 450px;
-        /* 移动设备上稍矮一些 */
     }
 }
