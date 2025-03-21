@@ -27,7 +27,7 @@ const AboutContent = () => {
                 </div>
               }
               backContent={
-                <div>
+                <div style={{ width: "100%", height: "100%" }}>
                   <Earth location="beijing" />
                 </div>
               }
@@ -44,7 +44,7 @@ const AboutContent = () => {
                 </div>
               }
               backContent={
-                <div>
+                <div style={{ width: "100%", height: "100%" }}>
                   <Earth location="madison" />
                 </div>
               }
@@ -61,7 +61,7 @@ const AboutContent = () => {
                 </div>
               }
               backContent={
-                <div>
+                <div style={{ width: "100%", height: "100%" }}>
                   <Earth location="la" />
                 </div>
               }

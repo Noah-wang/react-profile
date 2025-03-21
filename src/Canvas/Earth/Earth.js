@@ -2,7 +2,7 @@ import React, { Suspense, useRef, useState, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import * as THREE from "three";
-
+import "./EarthStyle.css"; // 引入新的样式文件
 
 import CanvasLoader from "./Loader";
 
@@ -200,7 +200,6 @@ const Earth = ({
                     onUpdate={(self) => {
                         // 确保材质知道纹理已更新
                         if (self.map) {
-                            console.log("材质纹理已应用");
                             self.needsUpdate = true;
                         }
                     }}
@@ -226,7 +225,7 @@ const EarthCanvas = ({
     enableZoom = false,
     minDistance = 4,
     maxDistance = 15,
-    cameraPosition = [0, 0, 10],
+    cameraPosition = [0, 0, 6],
     transparent = true,
     earthProps = {},
     customTexturePath = null,
@@ -252,8 +251,8 @@ const EarthCanvas = ({
     };
 
     return (
-        <div className="earth-card">
-            <div className="earth-container" style={{ width, height }}>
+        <div className="earth-card" style={{ width: "100%", height: "100%" }}>
+            <div className="earth-container" style={{ width: "100%", height: "100%" }}>
                 <Canvas
                     shadows
                     frameloop="always"
@@ -269,6 +268,7 @@ const EarthCanvas = ({
                         far: 1000,
                         position: cameraPosition,
                     }}
+                    style={{ width: "100%", height: "100%" }}
                 >
                     <ambientLight intensity={2.0} />
                     <directionalLight position={[5, 5, 5]} intensity={1.2} castShadow />
