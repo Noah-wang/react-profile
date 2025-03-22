@@ -7,9 +7,10 @@
     height: 100%;
     pointer-events: none;
     /* 确保粒子不会干扰交互 */
-    z-index: 0;
+    z-index: 5;
     /* 在卡片下方 */
     overflow: hidden;
+
 }
 
 .particle-effect {

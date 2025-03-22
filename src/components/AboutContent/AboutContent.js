@@ -6,6 +6,7 @@ import Project from "../Project/Project";
 import Card from "../../components/Card/Card";
 
 const AboutContent = () => {
+
   return (
     <>
       <div className="about-container">
