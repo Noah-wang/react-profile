@@ -12,17 +12,15 @@
     /* 动画 */
     animation: fadeIn 1s ease-out forwards;
     /* 圆角 */
-    border-radius: 15px;
+    border-radius: 25px !important;
     /* 相对定位，用于粒子容器 */
     position: relative;
-    /* 在窄屏幕上允许滚动 */
-    overflow-x: auto;
 
 }
 
 /* 项目标题 */
 .project-heading {
-    padding: 2rem;
+    padding-top: 2rem;
     /* 文本居中 */
     text-align: center;
     /* 字体大小 */
@@ -31,11 +29,14 @@
 
 /* 项目列表 */
 .project-list {
-    margin: 2rem;
-    display: flex;
-    justify-content: space-evenly;
-    gap: 1rem;
-
+    display: grid;
+    /* 使用网格布局实现响应式 */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    margin: 0 auto;
+    max-width: 100%;
+    justify-content: center;
 }
 
 /* 项目卡片 */
@@ -45,7 +46,8 @@
     /* 圆角 */
     border-radius: 15px;
     /* 溢出隐藏 */
-    overflow: hidden;
+    overflow: visible;
+    /* 允许粒子效果溢出 */
     /* 阴影 */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     /* 过渡效果 */
@@ -54,15 +56,23 @@
     display: flex;
     /* 弹性布局方向 */
     flex-direction: column;
-    /* 固定宽度和高度 */
-    height: 550px;
-    width: 300px;
-    /* 防止卡片被压缩 */
-    flex-shrink: 0;
+    /* 高度自适应，最小高度设置 */
+    min-height: 500px;
+    height: 100%;
+    /* 宽度自适应 */
+    width: 100%;
     /* 相对定位 */
     position: relative;
     /* 层级 */
     z-index: 1;
+    /* 悬停效果 */
+    transform-origin: center;
+}
+
+/* 卡片悬停效果 */
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
 }
 
 /* 项目图片容器 */
@@ -71,6 +81,9 @@
     position: relative;
     /* 高度 */
     height: 220px;
+    overflow: hidden;
+    /* 防止图片缩放溢出 */
+    border-radius: 15px;
 }
 
 /* 项目图片 */
@@ -78,6 +91,8 @@
     /* 大小 */
     width: 100%;
     height: 100%;
+    object-fit: cover;
+    /* 确保图片填充容器 */
     /* 过渡 */
     transition: transform 0.5s ease;
 }
@@ -85,7 +100,6 @@
 /* 图片悬停效果 */
 .project-image:hover {
     transform: scale(1.1);
-
 }
 
 /* 项目内容 */
@@ -120,129 +134,46 @@
     /* 字体大小 */
     font-size: 1.2rem;
     /* 下边距 */
-    margin-bottom: 1rem;
+    margin-bottom: 3rem;
+    /* 增加底部间距，为按钮留出空间 */
     /* 行高 */
     line-height: 1.6;
-
 }
 
 /* 项目链接按钮 */
 .project-link-btn {
     /* 内边距 */
-    padding: 0.7rem;
+    padding: 0.7rem 1.5rem;
     /* 圆角 */
     border-radius: 25px;
     /* 文本装饰 */
+    text-decoration: none;
     font-weight: bold;
-    transition: transform 0.2s ease;
+    /* 过渡 */
+    transition: all 0.2s ease;
     /* 绝对定位 */
     position: absolute;
     /* 距底部固定距离 */
-    bottom: 2.5rem;
+    bottom: 1.5rem;
     /* 距左侧固定距离 */
     left: 50%;
     /* 水平居中 */
     transform: translateX(-50%);
+    /* 背景色 */
+    background-color: rgba(255, 255, 255, 0.1);
+    /* 文字颜色 */
+    color: #ffffff;
+    /* 文本居中 */
+    text-align: center;
+    /* 阴影效果 */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .project-link-btn:hover {
     transform: translateX(-50%) scale(1.05);
     /* 保持水平居中的同时缩放 */
-}
-
-/* Project粒子容器 */
-.project-particles-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    /* 确保粒子不会干扰交互 */
-    z-index: 0;
-    /* 在卡片下方 */
-}
-
-/* Project粒子 */
-.project-particle {
-    position: absolute;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    opacity: 0;
-    background: radial-gradient(circle at center, #fff 0%, transparent 70%);
-    box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.8);
-    pointer-events: none;
-}
-
-/* 粒子动画 */
-@keyframes projectParticleFadeIn {
-    0% {
-        opacity: 0;
-        transform: scale(0) translate(0, 0);
-    }
-
-    20% {
-        /* 提前完成淡入 */
-        opacity: 1;
-        transform: scale(1) translate(0, 0);
-    }
-
-    80% {
-        /* 保持可见状态更长时间，并添加漂移 */
-        opacity: 0.8;
-        transform: scale(1) translate(var(--drift-x, 0), var(--drift-y, 0));
-    }
-
-    100% {
-        opacity: 0;
-        transform: scale(0.2) translate(var(--drift-x, 0), var(--drift-y, 0));
-    }
-}
-
-/* 适用于已触发的粒子 */
-.project-particle.active {
-    animation: projectParticleFadeIn var(--duration) ease-in-out forwards;
-}
-
-/* 响应式设计 */
-@media screen and (max-width: 768px) {
-    .project-container {
-        /* 确保在移动设备上有适当的内边距 */
-        padding: 1rem;
-    }
-
-    .project-list {
-        /* 在移动设备上增加滚动指示 */
-        padding-bottom: 1.5rem;
-        /* 增加滚动条上方空间 */
-        margin-bottom: 0.5rem;
-        /* 使滚动更平滑 */
-        scroll-behavior: smooth;
-        /* 隐藏滚动条但保留功能 */
-        scrollbar-width: thin;
-        scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
-    }
-
-    /* WebKit浏览器的滚动条样式 */
-    .project-list::-webkit-scrollbar {
-        height: 4px;
-    }
-
-    .project-list::-webkit-scrollbar-thumb {
-        background-color: rgba(255, 255, 255, 0.3);
-        border-radius: 2px;
-    }
-
-    .project-card {
-        /* 移动设备上稍窄和稍矮一些，但保持比例 */
-        width: 300px;
-        height: 450px;
-    }
-
-    .project-image-container {
-        height: 180px;
-    }
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 /* 确保粒子效果容器正确定位 */
@@ -252,6 +183,41 @@
     left: 0;
     width: 100%;
     height: 100%;
-    pointer-events: none; /* 确保不会干扰用户与卡片的交互 */
-    z-index: 10; /* 确保粒子在卡片内容之上 */
+    pointer-events: none;
+    /* 确保不会干扰用户与卡片的交互 */
+    z-index: 10;
+    /* 确保粒子在卡片内容之上 */
+}
+
+@media screen and (max-width: 768px) {
+    .project-container {
+        padding: 1rem;
+        margin: 3rem auto;
+    }
+
+    .project-heading {
+        font-size: 2rem;
+        padding: 1.5rem;
+    }
+
+    .project-list {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .project-card {
+        min-height: 450px;
+    }
+
+    .project-image-container {
+        height: 180px;
+    }
+
+    .project-title {
+        font-size: 1.3rem;
+    }
+
+    .project-description {
+        font-size: 1rem;
+    }
 }

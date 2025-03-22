@@ -7,13 +7,16 @@ import ParticleEffect from "../../effect/particleEffect";
 const Project = () => {
     // 添加状态管理悬停卡片
     const [hoveredCardIndex, setHoveredCardIndex] = useState(null);
-    // 添加一个状态用于重置粒子效果
+    // 获取卡片尺寸的ref
+    const cardRefs = useRef([]);
 
-
-
+    // 初始化refs
+    useEffect(() => {
+        cardRefs.current = cardRefs.current.slice(0, PROJECT.length);
+    }, [PROJECT.length]);
 
     return (
-        <div className="project-container">
+        <div className="project-container" id="projects">
             <h1 className="project-heading">Project</h1>
             <div className="project-list">
                 {/* 项目列表 */}
@@ -21,16 +24,18 @@ const Project = () => {
                     <div
                         key={index}
                         className="project-card"
+                        ref={el => cardRefs.current[index] = el}
                         onMouseEnter={() => setHoveredCardIndex(index)}
                         onMouseLeave={() => setHoveredCardIndex(null)}
                     >
                         <ParticleEffect
                             isActive={hoveredCardIndex === index}
                             count={50}
-                            containerWidth={350}
-                            containerHeight={500}
+                            containerWidth={cardRefs.current[index]?.offsetWidth || 300}
+                            containerHeight={cardRefs.current[index]?.offsetHeight || 500}
                             maxDuration={2.5}
                             minDuration={1.0}
+                            persistOnLeave={true}
                         />
                         {/* 项目图片，点击跳转到项目链接 */}
                         <div className="project-image-container">
@@ -60,7 +65,7 @@ const Project = () => {
                     </div>
                 ))}
             </div>
-        </div >
+        </div>
     )
 }
 
