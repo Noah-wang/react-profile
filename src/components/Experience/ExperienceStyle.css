@@ -5,7 +5,7 @@
     /* 背景色 */
     background: rgba(255, 255, 255, 0.05);
     /* 圆角 */
-    border-radius: 15px;
+    border-radius: 20px;
     /* 动画 */
     animation: fadeIn 1s ease-out forwards;
     /* 相对定位，用于粒子容器 */
@@ -37,7 +37,7 @@
     /* 项目下间距 */
     margin-bottom: 1.5rem;
     /* 圆角 */
-    border-radius: 10px;
+    border-radius: 20px;
     /* 3D效果 */
     transition: transform 0.7s ease, box-shadow 0.7s ease;
     /* 相对定位 */

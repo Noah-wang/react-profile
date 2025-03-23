@@ -4,6 +4,7 @@ import Earth from "../../Canvas/Earth/Earth";
 import Experience from "../Experience/Experience";
 import Project from "../Project/Project";
 import Card from "../../components/Card/Card";
+import MyLife from "../MyLife/myLife";
 
 const AboutContent = () => {
 
@@ -78,6 +79,11 @@ const AboutContent = () => {
         {/* 项目部分 */}
         <section className="project-section">
           <Project />
+        </section>
+
+        {/* 生活部分 */}
+        <section className="my-life-section">
+          <MyLife />
         </section>
       </div>
     </>

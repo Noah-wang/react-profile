@@ -3,6 +3,12 @@ import blogImg from "../asset/blog.png";
 import priceScoutImg from "../asset/PriceScout.png";
 import witaiImg from "../asset/witai.jpg";
 
+// 生活
+import lifeImg1 from "../asset/MadisonMarathon.jpeg";
+import lifeImg2 from "../asset/BeijingRunning.jpeg";
+import lifeImg3 from "../asset/Liaoningmarathon.jpeg";
+
+
 export const PROJECT = [
   {
     title: "个人博客",
@@ -68,3 +74,19 @@ export const EXPERIENCE = [
       "参加每周团体跑步。担任每周训练跑的配速员，帮助其他跑者保持节奏。",
   },
 ];
+
+
+export const MY_LIFE = [
+  {
+    image: lifeImg1,
+    description: "麦迪逊马拉松"
+  },
+  {
+    image: lifeImg2,
+    description: "北京跑山"
+  },
+  {
+    image: lifeImg3,
+    description: "锦州马拉松"
+  },
+]
