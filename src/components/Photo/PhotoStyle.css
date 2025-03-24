@@ -1,0 +1,106 @@
+/* 照片堆叠容器 */
+.photo-stack-container {
+    position: relative;
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1500px;
+}
+
+/* 照片堆叠效果 */
+.photo-stack {
+    position: relative;
+    width: 370px;
+    height: 200px;
+    transform-style: preserve-3d;
+}
+
+/* 照片项目样式 */
+.photo-item {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    top: 0;
+    left: 0;
+    transform-style: preserve-3d;
+    transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+    border-radius: 10px;
+    overflow: hidden;
+    transform-origin: center center;
+    backface-visibility: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.photo-card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease;
+}
+
+.photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-10px);
+    }
+
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+/* 响应式布局 */
+@media screen and (max-width: 768px) {
+    .photo-item {
+        width: 250px;
+        height: 250px;
+    }
+
+    .photo-stack {
+        width: 250px;
+        height: 250px;
+    }
+
+    .photo-stack-container {
+        height: 70vh;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .photo-item {
+        width: 200px;
+        height: 200px;
+    }
+
+    .photo-stack {
+        width: 200px;
+        height: 200px;
+    }
+
+    .photo-stack-container {
+        height: 60vh;
+    }
+
+    .scroll-indicator {
+        font-size: 0.9rem;
+    }
+}

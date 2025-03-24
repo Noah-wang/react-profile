@@ -8,6 +8,14 @@ import lifeImg1 from "../asset/MadisonMarathon.jpeg";
 import lifeImg2 from "../asset/BeijingRunning.jpeg";
 import lifeImg3 from "../asset/Liaoningmarathon.jpeg";
 
+// 摄影
+import photo1 from "../asset/photo1.jpg";
+import photo2 from "../asset/photo2.jpg";
+import photo3 from "../asset/photo3.jpg";
+import photo4 from "../asset/photo4.jpg";
+import photo5 from "../asset/photo5.jpg";
+import photo6 from "../asset/photo6.jpeg";
+
 
 export const PROJECT = [
   {
@@ -89,4 +97,26 @@ export const MY_LIFE = [
     image: lifeImg3,
     description: "锦州马拉松"
   },
+]
+
+export const PHOTO = [
+  {
+    image: photo1
+  },
+  {
+    image: photo2
+  },
+  {
+    image: photo3
+  },
+  {
+    image: photo4
+  },
+  {
+    image: photo5
+  },
+  {
+    image: photo6
+  },
+
 ]

@@ -1,0 +1,14 @@
+.HeroImg2 h1 {
+    font-size: 4rem;
+    font-weight: 600;
+    color: #fff;
+    text-align: center;
+    z-index: 100;
+}
+
+.HeroImg2 p {
+    font-size: 1.8rem;
+    color: #fff;
+    text-align: center;
+    z-index: 100;
+}

@@ -1,30 +1,32 @@
-.hero-img{
+.hero-img {
     width: 100%;
     height: 100vh;
     position: relative;
-    background-color: (0,0,0,0.9);
+    background-color: (0, 0, 0, 0.9);
+    overflow: hidden;
 }
 
-.hero-img::before{
+.hero-img::before {
     content: "";
     background: url("../../asset/2023.7.24西藏24.jpg");
     background-size: cover;
-    background-position: center top;
+    background-position: center;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     position: absolute;
-    top: 0;
-    left: 0;
     z-index: -1;
+    background-attachment: fixed;
 }
 
-.heading{
+.heading {
+    position: absolute;
+    top: 400px;
     font-size: 20rem;
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     animation: fadeInSlideUp 1.2s ease-out forwards;
     opacity: 0;
@@ -35,13 +37,14 @@
         opacity: 0;
         transform: translateY(30px);
     }
+
     100% {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-.hero-img h1{
+.hero-img h1 {
     font-size: 2.4rem;
     animation: glowPulse 3s ease-in-out infinite;
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
@@ -51,36 +54,43 @@
     0% {
         text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
     }
+
     50% {
         text-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
     }
+
     100% {
         text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
     }
 }
 
-.hero-img p{
+.hero-img p {
     font-size: 1.4rem;
     text-align: center;
     animation: fadeIn 1.5s ease-out 0.5s forwards;
     opacity: 0;
 }
 
+.hero-img img {
+    border-radius: 100%;
+}
+
 @keyframes fadeIn {
     0% {
         opacity: 0;
     }
+
     100% {
         opacity: 1;
     }
 }
 
-@media screen and (max-width: 640px){
-    .hero-img h1{
+@media screen and (max-width: 640px) {
+    .hero-img h1 {
         font-size: 2rem;
     }
 
-    .hero-img p{
+    .hero-img p {
         font-size: 1.2rem;
     }
 }

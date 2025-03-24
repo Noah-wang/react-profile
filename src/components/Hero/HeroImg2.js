@@ -5,6 +5,7 @@ const HeroImg2 = (props) => {
   return (
     <div className="hero-img">
       <div className="heading">
+        <img src={props.image} alt="hero" />
         <h1>{props.heading}</h1>
         <p>{props.text}</p>
       </div>

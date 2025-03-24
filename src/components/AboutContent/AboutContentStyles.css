@@ -20,7 +20,7 @@
     /* 字体间距 */
     letter-spacing: 0.02em;
     /* 容器底部距离 */
-    margin-bottom: 300px;
+    margin-bottom: 200px;
     /* 确保内容不溢出 */
     overflow: hidden;
 }
@@ -161,78 +161,5 @@
     to {
         opacity: 1;
         transform: translateY(0);
-    }
-}
-
-/* 响应式布局 - 增加小屏幕适配 */
-@media screen and (max-width: 768px) {
-    .about-container {
-        top: 80px; /* 减少顶部距离 */
-        margin-bottom: 200px; /* 确保有足够空间 */
-        padding: 1.5rem;
-    }
-    
-    .about-title {
-        font-size: 2.5rem;
-    }
-
-    .about-text {
-        font-size: 1.5rem;
-    }
-    
-    /* 调整卡片部分的间距 */
-    .card-section {
-        gap: 1.5rem;
-        margin: 1.5rem;
-    }
-    
-    /* 调整项目部分的边距 */
-    .project-section {
-        margin-top: 3rem;
-    }
-    
-    /* 调整生活部分的边距 */
-    .my-life-section {
-        margin-top: 2rem;
-        margin-bottom: 1rem;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .about-container {
-        top: 60px; /* 进一步减少顶部距离 */
-        margin-bottom: 120px; /* 减小底部边距 */
-        padding: 1rem;
-    }
-    
-    .about-title {
-        font-size: 2rem;
-    }
-
-    .about-text {
-        font-size: 1.2rem;
-    }
-    
-    /* 调整小屏幕上的卡片大小 */
-    .card-section > div {
-        flex: 0 1 100%;
-        min-width: 100%;
-        margin-bottom: 1rem;
-    }
-    
-    /* 调整项目部分的边距 */
-    .project-section {
-        margin-top: 2rem;
-    }
-    
-    /* 调整生活部分的边距和内边距 */
-    .my-life-section {
-        margin-top: 1.5rem;
-        margin-bottom: 0.5rem;
-    }
-    
-    /* 确保生活部分内容不超出容器 */
-    .my-life-section .my-life-container {
-        padding: 0.8rem;
     }
 }

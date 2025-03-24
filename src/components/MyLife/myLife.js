@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './myLifeStyle.css';
 import { MY_LIFE } from '../../Constant/index';
+import Photo from '../Photo/Photo';
 
 const MyLife = () => {
     const [activeIndex, setActiveIndex] = useState(null);
@@ -24,6 +25,14 @@ const MyLife = () => {
                         </div>
                     </div>
                 ))}
+            </div>
+
+            <h3 style={{ marginTop: '4rem' }}>
+                我还喜欢摄影，欢迎访问我的<a href="https://500px.com.cn/noahwang/" target="_blank" >500px</a>
+            </h3>
+
+            <div className="photo-container">
+                <Photo />
             </div>
         </div>
     );
