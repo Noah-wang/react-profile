@@ -3,43 +3,48 @@ import "./PhotoStyle.css";
 import { PHOTO } from "../../Constant/index";
 
 const Photo = () => {
+    //滚动进度
     const [scrollY, setScrollY] = useState(0);
+    //容器
     const containerRef = useRef(null);
+    //初始化标记
     const [isInitialized, setIsInitialized] = useState(false);
 
+    //滚动监听
     useEffect(() => {
         // 页面加载时设置初始状态，让所有图片叠在一起
         setTimeout(() => {
             setIsInitialized(true);
         }, 100);
 
+        //滚动监听
         const handleScroll = () => {
             if (containerRef.current) {
                 const container = containerRef.current;
                 const rect = container.getBoundingClientRect();
                 const viewportHeight = window.innerHeight;
-                
-                // 添加滚动延迟阈值 (0.3 = 需要滚动30%后才开始)
+
+                // 需要滚动30%后才开始变化
                 const scrollThreshold = 0.3;
-                
-                // 计算滚动进度，但添加延迟启动
+
+                // 计算滚动进度
                 const rawProgress = (viewportHeight - rect.top) / viewportHeight;
-                
+
                 // 基于阈值计算实际进度
                 let adjustedProgress = 0;
                 if (rawProgress > scrollThreshold) {
-                    // 将进度重新映射到0-1范围
+                    //开始进入进度
                     adjustedProgress = (rawProgress - scrollThreshold) / (1 - scrollThreshold);
                 }
-                
-                // 限制进度范围
+
+                // 限制从0到1的范围
                 const progress = Math.max(0, Math.min(1, adjustedProgress));
                 setScrollY(progress);
             }
         };
 
         window.addEventListener("scroll", handleScroll);
-        handleScroll(); // 初始调用
+        handleScroll();
 
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
@@ -47,23 +52,28 @@ const Photo = () => {
     // 计算照片展开的样式
     const getPhotoExpandStyle = (index) => {
         const totalPhotos = PHOTO.length;
-        const scrollProgress = Math.min(scrollY * 1.2, 1);
+        const scrollProgress = Math.min(scrollY, 1);
 
-        // 调整角度范围和展开半径
-        const angle = -75 + (150 / (totalPhotos - 1)) * index; // 角度范围从-75°到75°
-        const radius = 400 * scrollProgress; // 增加展开半径
-        
+
+        // 角度范围从-75°到75°
+        const angle = -75 + (150 / (totalPhotos - 1)) * index;
+        // 增加展开半径
+        const radius = 400 * scrollProgress;
+
+        // 转换为弧度
         const radian = angle * (Math.PI / 180);
-        const x = Math.sin(radian) * radius;
-        const y = -Math.cos(radian) * radius * 0.7; // 增加Y轴缩放系数
 
+        // x方向的横移
+        const x = Math.sin(radian) * radius;
+        console.log(x)
+        //-向下拉  0.7椭圆
+        const y = -Math.cos(radian) * radius * 0.7;
+        console.log(y)
         return {
             transform: `translate3d(${x}px, ${y}px, ${-index * 15}px) 
-                       rotate(${angle * scrollProgress}deg)`, // 增加Z轴偏移
+                       rotate(${angle * scrollProgress}deg)`,
+            //层叠关系
             zIndex: totalPhotos - index,
-            opacity: 0.8 + (scrollProgress * 0.2),
-            boxShadow: `${x/15}px ${y/15}px 40px rgba(0, 0, 0, ${0.2 + scrollProgress*0.4})`, // 增强阴影
-            transition: 'none'
         };
     };
 
