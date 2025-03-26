@@ -6,30 +6,65 @@
     overflow: hidden;
 }
 
-.hero-img::before {
+.hero-img::after {
     content: "";
     background: url("../../asset/2023.7.24西藏24.jpg");
     background-size: cover;
     background-position: center;
     width: 100%;
     height: 100vh;
-    position: absolute;
+    position: fixed;
     z-index: -1;
-    background-attachment: fixed;
 }
 
 .heading {
     position: absolute;
-    top: 400px;
-    font-size: 20rem;
+    top: 25%;
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
     align-items: center;
     animation: fadeInSlideUp 1.2s ease-out forwards;
     opacity: 0;
+}
+
+/* 图片容器样式 */
+.heading .clickable-image {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    margin-bottom: 2rem;
+    cursor: pointer;
+}
+
+/* 图片本身的样式 */
+.heading .clickable-image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    padding: 0;
+    animation: imageGlow 3s ease-in-out infinite;
+}
+
+@keyframes imageGlow {
+    0% {
+        box-shadow: 0 0 20px rgba(152, 255, 179, 0.5);
+    }
+
+    50% {
+        box-shadow: 0 0 30px rgba(152, 255, 179, 1);
+    }
+
+    100% {
+        box-shadow: 0 0 20px rgba(152, 255, 179, 0.5);
+    }
+}
+
+.heading .clickable-image:hover img {
+    transform: scale(1.05);
 }
 
 @keyframes fadeInSlideUp {
@@ -44,45 +79,11 @@
     }
 }
 
-.hero-img h1 {
-    font-size: 2.4rem;
-    animation: glowPulse 3s ease-in-out infinite;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-}
-
-@keyframes glowPulse {
-    0% {
-        text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-    }
-
-    50% {
-        text-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
-    }
-
-    100% {
-        text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-    }
-}
-
 .hero-img p {
     font-size: 1.4rem;
     text-align: center;
     animation: fadeIn 1.5s ease-out 0.5s forwards;
     opacity: 0;
-}
-
-.hero-img img {
-    border-radius: 100%;
-}
-
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
-    }
 }
 
 @media screen and (max-width: 640px) {

@@ -2,8 +2,6 @@ import "./HeroImgStyles.css";
 import React, { useState, useEffect } from "react";
 import IntroImg from "../../asset/2023.7.24西藏13.jpg";
 import { Link } from "react-router-dom";
-import { type } from "@testing-library/user-event/dist/type";
-
 
 const HeroImg = () => {
   //defile the text

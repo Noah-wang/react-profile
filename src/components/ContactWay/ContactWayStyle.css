@@ -1,0 +1,97 @@
+.contactway-container {
+    width: 80px;
+    height: 80px;
+    margin: 0;
+    /* 内框边界 */
+    padding: 0.8rem;
+    /* 增强阴影效果 */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    /* 毛玻璃特效 */
+    backdrop-filter: blur(8px);
+    /* 边框圆角 */
+    border-radius: 50%;
+    /* 容器相对位置 */
+    position: relative;
+    /* 使用flex布局 */
+    display: flex;
+    /* 垂直居中对齐 */
+    align-items: center;
+    /* 水平居中对齐 */
+    justify-content: center;
+    /* 添加过渡效果 */
+    transition: all 0.3s ease;
+    /* 边框 */
+    border: 2px solid rgba(205, 209, 23, 0.4);
+    /* 添加呼吸动画 */
+    animation: breathe 3s infinite ease-in-out;
+    /* 添加指针样式 */
+    cursor: pointer;
+}
+
+/* 呼吸效果动画 */
+@keyframes breathe {
+    0% {
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        border: 2px solid rgba(205, 209, 23, 0.4);
+    }
+    50% {
+        box-shadow: 0 4px 25px rgba(205, 209, 23, 0.5);
+        border: 2px solid rgba(205, 209, 23, 0.8);
+    }
+    100% {
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        border: 2px solid rgba(205, 209, 23, 0.4);
+    }
+}
+
+.contactway-container:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 8px 25px rgba(205, 209, 23, 0.6);
+    background-color: rgba(40, 40, 40, 0.8);
+    border: 2px solid rgba(205, 209, 23, 0.9);
+    animation: none;
+}
+
+/* 复制提示框样式 */
+.copy-tooltip {
+    position: absolute;
+    background-color: rgba(25, 25, 25, 0.9);
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    z-index: 100;
+}
+
+.copy-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: rgba(25, 25, 25, 0.9) transparent transparent transparent;
+}
+
+.copy-tooltip.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* 在小屏幕上调整 */
+@media screen and (max-width: 768px) {
+    .contactway-container {
+        width: 50px;
+        height: 50px;
+        padding: 0.6rem;
+    }
+}
