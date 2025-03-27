@@ -45,21 +45,24 @@
 @media screen and (max-width: 480px) {
     .contact-container {
         position: fixed;
-        bottom: 25%;    /* 放置在屏幕较高位置 */
+        bottom: 25%;
+        /* 放置在屏幕较高位置 */
         left: 50%;
         transform: translateX(-50%);
         display: flex;
         flex-direction: row;
         justify-content: center;
         align-items: center;
-        gap: 30px;      /* 增加图标之间的间距 */
+        gap: 30px;
+        /* 增加图标之间的间距 */
         z-index: 100;
         width: 100%;
-        padding: 0 15px;  /* 增加两侧内边距 */
+        padding: 0 15px;
+        /* 增加两侧内边距 */
         opacity: 0;
         transition: opacity 0.3s ease;
     }
-    
+
     /* 显示容器时使其可见 */
     .contact-container.mobile-view {
         opacity: 1;
@@ -88,11 +91,11 @@
     .contact-way-Email {
         transition-delay: 0.1s;
     }
-    
+
     .contact-way-Phone {
         transition-delay: 0.2s;
     }
-    
+
     .contact-way-WeChat {
         transition-delay: 0.3s;
     }

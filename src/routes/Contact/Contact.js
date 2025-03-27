@@ -29,6 +29,16 @@ const Contact = () => {
 
   const handleImageClick = () => {
     setShowContacts(!showContacts);
+    
+    // 在移动设备上，滚动到适当的位置以查看联系方式
+    if (isMobileView && !showContacts) {
+      setTimeout(() => {
+        window.scrollTo({
+          top: window.innerHeight * 0.5,
+          behavior: 'smooth'
+        });
+      }, 100);
+    }
   };
 
   return (

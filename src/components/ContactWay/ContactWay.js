@@ -21,7 +21,7 @@ const ContactWay = ({ content, icon }) => {
         navigator.clipboard.writeText(content)
             .then(() => {
                 setShowCopied(true);
-                setTimeout(() => setShowCopied(false), 1000); // 1秒后隐藏提示
+                setTimeout(() => setShowCopied(false), 1000); // 2秒后隐藏提示
             })
     };
 
