@@ -137,7 +137,7 @@
 }
 
 /* 响应式设计 */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 480px) {
     .accordion-container {
         height: 300px;
     }

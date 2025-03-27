@@ -86,12 +86,38 @@
     opacity: 0;
 }
 
-@media screen and (max-width: 640px) {
-    .hero-img h1 {
-        font-size: 2rem;
+/* 添加移动设备特定样式 */
+@media screen and (max-width: 480px) {
+
+
+    /* 图片容器样式调整 */
+    .heading .clickable-image {
+        width: 150px;
+        height: 150px;
+        position: relative;
+        z-index: 30;
+        /* 增加z-index确保它在最上层 */
+        cursor: pointer;
+        margin-bottom: 1.5rem;
     }
 
-    .hero-img p {
-        font-size: 1.2rem;
+    /* 确保图片可点击 */
+    .heading .clickable-image img {
+        pointer-events: auto;
     }
+
+    /* 添加提示效果，暗示图片可点击 */
+    .heading .clickable-image::after {
+        content: '';
+        position: absolute;
+        width: calc(100% + 20px);
+        height: calc(100% + 20px);
+        border-radius: 50%;
+
+        top: -10px;
+        left: -10px;
+        animation: mobilePulse 2s infinite;
+        pointer-events: none;
+    }
+
 }

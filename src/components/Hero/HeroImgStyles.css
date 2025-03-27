@@ -69,7 +69,7 @@
 /* 副标题 */
 .hero .content p {
   /* 副标题大小 */
-  font-size: 2rem;
+  font-size: 1rem;
   /* 副标题颜色 */
   color: #dbf723;
   /* 副标题下间距 */
@@ -130,10 +130,11 @@
 
 /* button样式 */
 .btn {
+  padding: 10px 20px;
   /* 按钮颜色 */
-  color: #746a37;
+  color: rgb(124, 117, 32);
   /* 按钮大小 */
-  font-size: 16px;
+  font-size: 2rem;
   /* 按钮间距 */
   margin: 1rem 1rem;
   /* 按钮轮廓颜色 */
@@ -176,25 +177,38 @@
   left: 0px;
 }
 
-/* 响应式布局 */
-@media (min-width: 768px) {
-  .btn {
-    padding: 13px 50px 13px;
-  }
-}
+@media screen and (max-width: 480px) {
 
-/* 响应式调整 */
-@media screen and (max-width: 640px) {
   .hero .content h1 {
-    font-size: 2.5rem;
-    min-height: 4rem;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    width: 300px;
   }
 
-  .hero .content p {
-    font-size: 1.5rem;
-  }
 
   .cursor {
-    height: 2.5rem;
+    /* 显示方式 */
+    display: inline-block;
+    /* 宽度 */
+    width: 5px;
+    /* 高度 */
+    height: 2rem;
+    /* 背景颜色 */
+    background-color: #dbf723;
+    /* 左侧间距 */
+    margin-left: 10px;
+    /* 动画 */
+    animation: blink 1s infinite;
+    align-self: center;
   }
+
+  .btn {
+    padding: 3px 8px;
+    /* 按钮颜色 */
+    /* 按钮大小 */
+    font-size: 1.5rem;
+    /* 按钮间距 */
+    margin: 1rem 1rem;
+  }
+
 }

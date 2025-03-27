@@ -34,10 +34,12 @@
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
         border: 2px solid rgba(205, 209, 23, 0.4);
     }
+
     50% {
         box-shadow: 0 4px 25px rgba(205, 209, 23, 0.5);
         border: 2px solid rgba(205, 209, 23, 0.8);
     }
+
     100% {
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
         border: 2px solid rgba(205, 209, 23, 0.4);
@@ -88,10 +90,46 @@
 }
 
 /* 在小屏幕上调整 */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 480px) {
     .contactway-container {
-        width: 50px;
-        height: 50px;
-        padding: 0.6rem;
+        width: 65px;
+        height: 65px;
+        padding: 0.5rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(5px);
+    }
+
+    /* 调整图标尺寸 */
+    .contactway-container svg {
+        width: 35px !important;
+        height: 35px !important;
+    }
+
+    /* 调整小屏幕上的复制提示框位置 */
+    .copy-tooltip {
+        bottom: calc(100% + 8px);
+        padding: 6px 10px;
+        font-size: 0.75rem;
+        white-space: nowrap;
+        max-width: 200px;
+        text-align: center;
+    }
+
+    /* 优化呼吸效果 */
+    @keyframes breathe {
+        0% {
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+            border: 2px solid rgba(205, 209, 23, 0.4);
+        }
+
+        50% {
+            box-shadow: 0 2px 15px rgba(205, 209, 23, 0.5);
+            border: 2px solid rgba(205, 209, 23, 0.8);
+        }
+
+        100% {
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+            border: 2px solid rgba(205, 209, 23, 0.4);
+        }
     }
 }

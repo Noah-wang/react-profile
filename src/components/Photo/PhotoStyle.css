@@ -48,24 +48,16 @@
     transition: all 0.3s ease;
 }
 
-/* 响应式布局 */
-@media screen and (max-width: 768px) {
-    .photo-item {
-        width: 250px;
-        height: 250px;
-    }
-
-    .photo-stack {
-        width: 250px;
-        height: 250px;
-    }
-
-    .photo-stack-container {
-        height: 70vh;
-    }
-}
-
 @media screen and (max-width: 480px) {
+    .photo-stack-container {
+
+        height: 120vh;
+        padding-bottom: 300px;
+        /* 移动端可能需要不同的上移距离 */
+        margin-top: -20px;
+
+    }
+
     .photo-item {
         width: 200px;
         height: 200px;
@@ -83,4 +75,5 @@
     .scroll-indicator {
         font-size: 0.9rem;
     }
+
 }

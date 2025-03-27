@@ -187,36 +187,3 @@
     z-index: 10;
     /* 确保粒子在卡片内容之上 */
 }
-
-@media screen and (max-width: 768px) {
-    .project-container {
-        padding: 1rem;
-        margin: 3rem auto;
-    }
-
-    .project-heading {
-        font-size: 2rem;
-        padding: 1.5rem;
-    }
-
-    .project-list {
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-        gap: 1.5rem;
-    }
-
-    .project-card {
-        min-height: 450px;
-    }
-
-    .project-image-container {
-        height: 180px;
-    }
-
-    .project-title {
-        font-size: 1.3rem;
-    }
-
-    .project-description {
-        font-size: 1rem;
-    }
-}

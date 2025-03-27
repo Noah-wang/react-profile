@@ -90,16 +90,6 @@
     margin-bottom: 2rem;
 }
 
-/* 响应式布局 */
-@media screen and (max-width: 800px) {
-    .about-container {
-        margin: 0 1rem;
-        margin-bottom: 200px;
-        /* 减少底部边距 */
-    }
-}
-
-
 /* 项目部分 */
 .project-section {
     margin-top: 4rem;
@@ -149,6 +139,21 @@
     letter-spacing: 0.1em;
     background: none;
     -webkit-text-fill-color: #ddd60b;
+}
+
+@media screen and (max-width: 480px) {
+    .card-section {
+        /* 间距相等 */
+        justify-content: center;
+        /* 卡片的间距 */
+        gap: 2rem;
+        /* 卡片底部距离 */
+        margin: 2rem;
+        /* 卡片自动换行 */
+        flex-wrap: wrap;
+        /* 卡片动画 */
+        animation: fadeIn 1.0s ease-out forwards;
+    }
 }
 
 /* 淡入动画 */

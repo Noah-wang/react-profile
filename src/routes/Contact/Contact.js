@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import HeroImg2 from "../../components/Hero/HeroImg2";
 import IconGif from "../../asset/frogjump.gif";
@@ -8,6 +8,24 @@ import ContactWay from "../../components/ContactWay/ContactWay"
 const Contact = () => {
   const contactRef = useRef(null);
   const [showContacts, setShowContacts] = useState(false);
+  const [isMobileView, setIsMobileView] = useState(false);
+
+  // 检测是否是移动设备
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobileView(window.innerWidth <= 480);
+    };
+    
+    // 初始检测
+    checkMobile();
+    
+    // 窗口大小变化时重新检测
+    window.addEventListener("resize", checkMobile);
+    
+    return () => {
+      window.removeEventListener("resize", checkMobile);
+    };
+  }, []);
 
   const handleImageClick = () => {
     setShowContacts(!showContacts);
@@ -26,7 +44,7 @@ const Contact = () => {
         />
       </div>
 
-      <div className="contact-container" ref={contactRef}>
+      <div className={`contact-container ${isMobileView ? 'mobile-view' : ''}`} ref={contactRef}>
         <div className={`contact-way-Email ${showContacts ? 'show' : ''}`} style={{ animationDelay: "0.3s" }}>
           <ContactWay
             icon="MdOutlineMailOutline"
