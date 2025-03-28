@@ -4,8 +4,13 @@ import HeroImg2 from "../../components/Hero/HeroImg2";
 import IconGif from "../../asset/frogjump.gif";
 import "./ContactStyle.css"
 import ContactWay from "../../components/ContactWay/ContactWay"
+import { useLanguage } from "../../context/LanguageContext";
+import { translations } from "../../locales/translations";
 
 const Contact = () => {
+  const { language } = useLanguage();
+  const t = translations[language];
+  
   const contactRef = useRef(null);
   const [showContacts, setShowContacts] = useState(false);
   const [isMobileView, setIsMobileView] = useState(false);
@@ -47,8 +52,8 @@ const Contact = () => {
 
       <div className="heroimg-container">
         <HeroImg2
-          heading="Contact"
-          text="Get in touch with me"
+          heading={t.contact}
+          text={t.getInTouch}
           onImageClick={handleImageClick}
           image={IconGif}
         />

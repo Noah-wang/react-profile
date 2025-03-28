@@ -18,14 +18,26 @@
     z-index: 10;
 }
 
+/* Logo容器样式 */
+.logo-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    max-width: 60%;
+}
+
 /* 标题样式 */
-h1 {
+.bannerLogo {
     /* 过渡动画 */
     transition: all 0.3s ease;
     /* 颜色 */
     color: #cdd117;
     /* 阴影 */
     text-shadow: 0 0 10px rgba(221, 214, 11, 0.595);
+    margin: 0;
+    display: inline-block;
 }
 
 /* 标题悬停 */
@@ -144,7 +156,16 @@ h1 {
         /* FIXED: layer problem*/
         z-index: 10;
         transition: 0.3s;
+    }
 
+    /* Logo容器在小屏幕上的样式 */
+    .logo-container {
+        flex-direction: row;
+        max-width: 75%;
+    }
+
+    .bannerLogo {
+        font-size: 1.5rem;
     }
 
     /* 激活汉堡菜单动画 */
@@ -200,6 +221,4 @@ h1 {
     .hamburger:hover svg {
         color: #fff !important;
     }
-
-
 }

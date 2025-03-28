@@ -3,6 +3,8 @@
 ![React Portfolio](https://img.shields.io/badge/React-Portfolio-blue)
 ![Version](https://img.shields.io/badge/version-1.0.0-green)
 
+www.noahwangresume.site
+
 一个使用 React.js 构建的现代个人作品集网站，融合了创新交互设计和视觉体验。本项目展示了前端开发的最佳实践，包括响应式设计、交互动画和各种现代 Web 技术的应用。
 
 ## 🌟 项目概述

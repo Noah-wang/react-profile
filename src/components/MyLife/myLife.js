@@ -1,16 +1,25 @@
 import React, { useState } from 'react';
 import './myLifeStyle.css';
-import { MY_LIFE } from '../../Constant/index';
 import Photo from '../Photo/Photo';
+import { useLanguage } from "../../context/LanguageContext";
+import { translations } from "../../locales/translations";
 
 const MyLife = () => {
+    const { language } = useLanguage();
+    const t = translations[language];
     const [activeIndex, setActiveIndex] = useState(null);
     return (
         <div className="my-life-container">
-            <h1>My Life</h1>
-            <h3>我是一个跑者，欢迎访问我的<a href="https://noah-wang.github.io/" target="_blank" >博客</a>，了解更多我的跑步故事</h3>
+            <h1>{t.myLifeTitle}</h1>
+            <h3>
+                {t.runnerDesc}
+                <a href="https://noah-wang.github.io/" target="_blank" rel="noopener noreferrer">
+                    {t.blogLink}
+                </a>
+                {t.runningStory}
+            </h3>
             <div className="accordion-container">
-                {MY_LIFE.map((item, index) => (
+                {t.myLifes.map((item, index) => (
                     <div
                         // 选中就采用active的css
                         className={`accordion-item ${activeIndex === index ? 'active' : ''}`}
@@ -28,7 +37,10 @@ const MyLife = () => {
             </div>
 
             <h3 style={{ marginTop: '4rem' }}>
-                我还喜欢摄影，欢迎访问我的<a href="https://500px.com.cn/noahwang/" target="_blank" >500px</a>
+                {t.photographyDesc}
+                <a href="https://500px.com.cn/noahwang/" target="_blank" rel="noopener noreferrer">
+                    {t.photoLink}
+                </a>
             </h3>
 
             <div className="photo-container">

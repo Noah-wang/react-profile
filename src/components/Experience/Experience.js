@@ -1,18 +1,22 @@
 import React, { useState, useRef, useEffect } from "react";
-import { EXPERIENCE } from "../../Constant/index";
 import "./ExperienceStyle.css";
 import ParticleEffect from "../../effect/particleEffect";
+import { useLanguage } from "../../context/LanguageContext";
+import { translations } from "../../locales/translations";
 
 const Experience = () => {
+  const { language } = useLanguage();
+  const t = translations[language];
+
   const [hoveredCardIndex, setHoveredCardIndex] = useState(null);
-  
+
   return (
     <div className="experience">
-      <h2>Experience</h2>
+      <h2>{t.experienceTitle}</h2>
 
       <div>
         {/* 经验列表 */}
-        {EXPERIENCE.map((experience, index) => (
+        {t.experiences.map((experience, index) => (
           <div
             key={index}
             className="experience-item"

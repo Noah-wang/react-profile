@@ -16,6 +16,7 @@ import photo4 from "../asset/photo4.jpg";
 import photo5 from "../asset/photo5.jpg";
 import photo6 from "../asset/photo6.jpeg";
 
+// 后期需要修改只需要改中文
 
 export const PROJECT = [
   {
@@ -36,6 +37,29 @@ export const PROJECT = [
     image: witaiImg,
     link: "https://github.com/Noah-wang/BadgerChat-AI",
     description: "基于 Wit.AI 的智能购物聊天机器人，让用户通过自然语言对话实现商品浏览、购物车管理和结账流程。",
+  }
+];
+
+// 创建英文版本的项目数据
+export const PROJECT_EN = [
+  {
+    title: "Personal Blog",
+    image: PROJECT[0].image,
+    link: PROJECT[0].link,
+    description:
+      "Built and maintained a personal blog using modern web development frameworks. Share insights on computer science topics, photography, and personal experiences. Developed frontend skills and framework utilization, including website deployment.",
+  },
+  {
+    title: "PriceScout Shopping Assistant",
+    image: PROJECT[1].image,
+    link: PROJECT[1].link,
+    description: "One-stop shopping search tool that lets you enter a search term once, select target shopping websites, and automatically opens multiple sites displaying search results, greatly improving price comparison and shopping efficiency.",
+  },
+  {
+    title: "BadgerChat AI",
+    image: PROJECT[2].image,
+    link: PROJECT[2].link,
+    description: "An intelligent shopping chatbot based on Wit.AI, allowing users to browse products, manage shopping carts, and checkout through natural language dialogue.",
   }
 ];
 
@@ -84,6 +108,54 @@ export const EXPERIENCE = [
 ];
 
 
+
+// 创建英文版本的经验数据
+export const EXPERIENCE_EN = [
+  {
+    title: "Hisense Group Co., Ltd.",
+    location: "Beijing, China",
+    date: "2024.5 - 2024.6",
+    description: `Assisted in modifying and optimizing the company's internal management system website. Learned website development practices in a corporate environment and gained teamwork experience.`,
+  },
+  {
+    title: "GCORES",
+    location: "Beijing, China",
+    date: "2023.6 - 2023.8",
+    description:
+      "Assisted in organizing and managing game exhibitions, showcasing new and trending games from companies like Xbox and Microsoft, as well as independent developers. Gained an understanding of the challenges and regulatory limitations facing the Chinese gaming industry.",
+  },
+  {
+    title: "Outreach Chair of UW-Madison Chinese Undergraduate Students Association",
+    location: "Madison, Wisconsin",
+    date: "2022.9 - 2023.9",
+    description:
+      "Organized events and services for over 10,000 international Chinese students and residents. Led the Madison Food Festival, collaborating with local restaurants to provide discounts and promotions.",
+  },
+  {
+    title: "Minerva Game Studio",
+    location: "Madison, Wisconsin",
+
+    date: "2023.9 - 2024.12",
+    description:
+      "Developed game mechanics using C#, including character movement, jumping, and environmental interactions. Created an in-game collection system and enhanced the game world-building through interactive books providing background story for players.",
+  },
+  {
+    title: '"Save America" Campaign Founder',
+    location: "Beijing, China",
+    date: "2020.6 - 2020.12",
+    description:
+      "During the COVID-19 mask shortage, negotiated, purchased, and delivered over 2,000 masks, helping more than 10 American families cope with mask shortages.",
+  },
+  {
+    title: "Member of Beijing Daxing Deer Running Club",
+    location: "Beijing, China",
+    date: "2023.9 - 2024.9",
+    description:
+      "Participated in weekly group runs. Served as a pacer for weekly training runs, helping other runners maintain pace.",
+  },
+];
+
+
 export const MY_LIFE = [
   {
     image: lifeImg1,
@@ -98,6 +170,21 @@ export const MY_LIFE = [
     description: "锦州马拉松"
   },
 ]
+// 创建英文版本的生活内容
+export const MY_LIFE_EN = [
+  {
+    image: MY_LIFE[0].image,
+    description: "Madison Marathon"
+  },
+  {
+    image: MY_LIFE[1].image,
+    description: "Beijing Mountain Running"
+  },
+  {
+    image: MY_LIFE[2].image,
+    description: "Jinzhou Marathon"
+  },
+];
 
 export const PHOTO = [
   {

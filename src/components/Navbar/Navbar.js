@@ -2,10 +2,16 @@ import "./NavbarStyles.css";
 
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-
 import { FaBars, FaTimes } from "react-icons/fa";
+import { useLanguage } from "../../context/LanguageContext";
+import { translations } from "../../locales/translations";
+import LanguageToggle from "../LanguageToggle/LanguageToggle";
 
 const Navbar = () => {
+  // 获取当前语言
+  const { language } = useLanguage();
+  const t = translations[language];
+
   // 导航栏组件变量
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
@@ -27,22 +33,27 @@ const Navbar = () => {
   return (
     // 导航栏样式
     <div className={color ? "header header-bg" : "header"}>
-      {/* Link to the HOME page */}
-      <Link to="/">
-        <h1 className="bannerLogo">Noah's Portfolio</h1>
-      </Link>
+      {/* 左侧标题和语言切换 */}
+      <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+        <Link to="/">
+          <h1 className="bannerLogo">Noah's Portfolio</h1>
+        </Link>
+        <span style={{ marginLeft: '15px' }}>
+          <LanguageToggle />
+        </span>
+      </div>
 
-      {/* Link to the other pages as NAVBAR */}
+      {/* 右侧导航菜单 */}
       <ul className={click ? "nav-menu active" : "nav-menu"}>
         <li>
-          <Link to="/">Home</Link>
+          <Link to="/">{t.home}</Link>
         </li>
 
         <li>
-          <Link to="/about">About</Link>
+          <Link to="/about">{t.about}</Link>
         </li>
         <li>
-          <Link to="/contact">Contact</Link>
+          <Link to="/contact">{t.contact}</Link>
         </li>
       </ul>
 

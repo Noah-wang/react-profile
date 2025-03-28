@@ -2,8 +2,12 @@ import React, { useState } from "react";
 import "./ContactWayStyle.css"
 import { IoLogoWechat, IoPhonePortraitOutline } from "react-icons/io5";
 import { MdOutlineMailOutline } from "react-icons/md";
+import { useLanguage } from "../../context/LanguageContext";
+import { translations } from "../../locales/translations";
 
 const ContactWay = ({ content, icon }) => {
+    const { language } = useLanguage();
+    const t = translations[language];
     const [showCopied, setShowCopied] = useState(false);
 
     // 创建图标组件映射
@@ -21,7 +25,7 @@ const ContactWay = ({ content, icon }) => {
         navigator.clipboard.writeText(content)
             .then(() => {
                 setShowCopied(true);
-                setTimeout(() => setShowCopied(false), 1000); // 2秒后隐藏提示
+                setTimeout(() => setShowCopied(false), 1000); // 1秒后隐藏提示
             })
     };
 
@@ -30,7 +34,7 @@ const ContactWay = ({ content, icon }) => {
             {IconComponent && <IconComponent size={40} style={{ color: "#cdd117" }} />}
             {/* 复制成功提示 */}
             <div className={`copy-tooltip ${showCopied ? 'show' : ''}`}>
-                已复制: {content}
+                {t.copied} {content}
             </div>
         </div>
     )

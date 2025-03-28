@@ -1,10 +1,13 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./ProjectStyle.css";
-import { PROJECT } from "../../Constant/index";
+import { useLanguage } from "../../context/LanguageContext";
+import { translations } from "../../locales/translations";
 import ParticleEffect from "../../effect/particleEffect";
 
-
 const Project = () => {
+    const { language } = useLanguage();
+    const t = translations[language];
+
     // 添加状态管理悬停卡片
     const [hoveredCardIndex, setHoveredCardIndex] = useState(null);
     // 获取卡片尺寸的ref
@@ -12,15 +15,15 @@ const Project = () => {
 
     // 初始化refs
     useEffect(() => {
-        cardRefs.current = cardRefs.current.slice(0, PROJECT.length);
-    }, [PROJECT.length]);
+        cardRefs.current = cardRefs.current.slice(0, t.projects.length);
+    }, [t.projects.length]);
 
     return (
         <div className="project-container" id="projects">
-            <h1 className="project-heading">Project</h1>
+            <h1 className="project-heading">{t.projectHeading}</h1>
             <div className="project-list">
                 {/* 项目列表 */}
-                {PROJECT.map((project, index) => (
+                {t.projects.map((project, index) => (
                     <div
                         key={index}
                         className="project-card"
@@ -59,7 +62,7 @@ const Project = () => {
                                 rel="noopener noreferrer"
                                 className="project-link-btn"
                             >
-                                查看项目
+                                {t.viewProject}
                             </a>
                         </div>
                     </div>
@@ -68,6 +71,5 @@ const Project = () => {
         </div>
     )
 }
-
 
 export default Project;
