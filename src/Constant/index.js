@@ -125,7 +125,7 @@ export const EXPERIENCE_EN = [
       "Assisted in organizing and managing game exhibitions, showcasing new and trending games from companies like Xbox and Microsoft, as well as independent developers. Gained an understanding of the challenges and regulatory limitations facing the Chinese gaming industry.",
   },
   {
-    title: "Outreach Chair of UW-Madison Chinese Undergraduate Students Association",
+    title: "Business Dept Chair of UW-Madison Chinese Undergraduate Students Association",
     location: "Madison, Wisconsin",
     date: "2022.9 - 2023.9",
     description:
@@ -178,7 +178,7 @@ export const MY_LIFE_EN = [
   },
   {
     image: MY_LIFE[1].image,
-    description: "Beijing Mountain Running"
+    description: "Beijing Mountain-Running"
   },
   {
     image: MY_LIFE[2].image,
