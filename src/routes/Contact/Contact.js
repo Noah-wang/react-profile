@@ -13,30 +13,12 @@ const Contact = () => {
   
   const contactRef = useRef(null);
   const [showContacts, setShowContacts] = useState(false);
-  const [isMobileView, setIsMobileView] = useState(false);
-
-  // 检测是否是移动设备
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobileView(window.innerWidth <= 480);
-    };
-    
-    // 初始检测
-    checkMobile();
-    
-    // 窗口大小变化时重新检测
-    window.addEventListener("resize", checkMobile);
-    
-    return () => {
-      window.removeEventListener("resize", checkMobile);
-    };
-  }, []);
 
   const handleImageClick = () => {
     setShowContacts(!showContacts);
     
-    // 在移动设备上，滚动到适当的位置以查看联系方式
-    if (isMobileView && !showContacts) {
+    // 滚动到适当的位置以查看联系方式
+    if (!showContacts) {
       setTimeout(() => {
         window.scrollTo({
           top: window.innerHeight * 0.5,
@@ -59,7 +41,7 @@ const Contact = () => {
         />
       </div>
 
-      <div className={`contact-container ${isMobileView ? 'mobile-view' : ''}`} ref={contactRef}>
+      <div className="contact-container" ref={contactRef}>
         <div className={`contact-way-Email ${showContacts ? 'show' : ''}`} style={{ animationDelay: "0.3s" }}>
           <ContactWay
             icon="MdOutlineMailOutline"

@@ -1,17 +1,33 @@
 .contact-container {
-    position: absolute;
-    width: 100%;
+    position: fixed;
+    bottom: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
     z-index: 100;
-    pointer-events: none;
+    width: 100%;
+    padding: 0 15px;
+    opacity: 1;
+}
+
+.contact-container.mobile-view {
+    opacity: 1;
 }
 
 .contact-way-Email,
 .contact-way-Phone,
 .contact-way-WeChat {
-    position: absolute;
+    position: relative;
+    top: auto;
+    left: auto;
+    margin: 0;
     opacity: 0;
-    transform: scale(0.3);
-    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transform: scale(0.3) translateY(20px);
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
     pointer-events: auto;
 }
 
@@ -19,84 +35,17 @@
 .contact-way-Phone.show,
 .contact-way-WeChat.show {
     opacity: 1;
-    transform: scale(1);
+    transform: scale(1) translateY(0);
 }
 
 .contact-way-Email {
-    top: -670px;
-    left: 58%;
-    transition-delay: 0s;
-}
-
-.contact-way-Phone {
-    top: -540px;
-    left: 61%;
     transition-delay: 0.1s;
 }
 
-.contact-way-WeChat {
-    top: -420px;
-    left: 58%;
+.contact-way-Phone {
     transition-delay: 0.2s;
 }
 
-
-/* 响应式调整 */
-@media screen and (max-width: 480px) {
-    .contact-container {
-        position: fixed;
-        bottom: 25%;
-        /* 放置在屏幕较高位置 */
-        left: 50%;
-        transform: translateX(-50%);
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        gap: 30px;
-        /* 增加图标之间的间距 */
-        z-index: 100;
-        width: 100%;
-        padding: 0 15px;
-        /* 增加两侧内边距 */
-        opacity: 0;
-        transition: opacity 0.3s ease;
-    }
-
-    /* 显示容器时使其可见 */
-    .contact-container.mobile-view {
-        opacity: 1;
-    }
-
-    .contact-way-Email,
-    .contact-way-Phone,
-    .contact-way-WeChat {
-        position: relative;
-        top: auto;
-        left: auto;
-        margin: 0;
-        opacity: 0;
-        transform: scale(0.3) translateY(20px);
-        transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-
-    .contact-way-Email.show,
-    .contact-way-Phone.show,
-    .contact-way-WeChat.show {
-        opacity: 1;
-        transform: scale(1) translateY(0);
-    }
-
-    /* 移动端联系方式入场动画延迟 */
-    .contact-way-Email {
-        transition-delay: 0.1s;
-    }
-
-    .contact-way-Phone {
-        transition-delay: 0.2s;
-    }
-
-    .contact-way-WeChat {
-        transition-delay: 0.3s;
-    }
+.contact-way-WeChat {
+    transition-delay: 0.3s;
 }

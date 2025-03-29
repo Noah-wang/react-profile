@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './myLifeStyle.css';
+import { MY_LIFE } from '../../Constant/index';
 import Photo from '../Photo/Photo';
 import { useLanguage } from "../../context/LanguageContext";
 import { translations } from "../../locales/translations";
@@ -19,7 +20,7 @@ const MyLife = () => {
                 {t.runningStory}
             </h3>
             <div className="accordion-container">
-                {t.myLifes.map((item, index) => (
+                {MY_LIFE.map((item, index) => (
                     <div
                         // 选中就采用active的css
                         className={`accordion-item ${activeIndex === index ? 'active' : ''}`}

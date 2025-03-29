@@ -34,13 +34,11 @@ const Navbar = () => {
     // 导航栏样式
     <div className={color ? "header header-bg" : "header"}>
       {/* 左侧标题和语言切换 */}
-      <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+      <div className="logo-container">
         <Link to="/">
           <h1 className="bannerLogo">Noah's Portfolio</h1>
         </Link>
-        <span style={{ marginLeft: '15px' }}>
-          <LanguageToggle />
-        </span>
+        <LanguageToggle />
       </div>
 
       {/* 右侧导航菜单 */}

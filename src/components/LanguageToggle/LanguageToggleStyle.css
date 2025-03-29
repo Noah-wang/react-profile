@@ -13,8 +13,6 @@
   transition: all 0.3s ease;
   box-shadow: 0 0 10px rgba(221, 214, 11, 0.2);
   text-shadow: 0 0 5px rgba(221, 214, 11, 0.3);
-  vertical-align: middle;
-  line-height: normal;
 }
 
 .language-toggle:hover {
@@ -30,5 +28,13 @@
     margin-left: 10px;
     padding: 4px 8px;
     font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .language-toggle {
+    margin-left: 5px;
+    padding: 3px 6px;
+    font-size: 10px;
   }
 } 
