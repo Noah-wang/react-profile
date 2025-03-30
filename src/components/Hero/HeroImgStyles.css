@@ -1,25 +1,88 @@
 /* 图片样式 */
-.mask {
-  /* 宽度 */
-  width: 100%;
-  /* 高度 */
+.hero {
   height: 100vh;
-  /* 相对定位 */
+  width: 100%;
   position: relative;
+  overflow: hidden;
 }
 
-/* 背景图片 */
-.into-img {
-  /* 宽度 */
+.mask {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  /* 高度 */
   height: 100%;
-  /* 背景大小 */
-  background-size: cover;
-  /* 背景位置 */
-  background-position: center;
-  /* 背景适配 */
+  z-index: 1;
+}
+
+.into-img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+}
+
+.image-loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-align: center;
+}
+
+h1 {
+  font-size: 3.5rem;
+  margin-bottom: 2rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.cursor {
+  display: inline-block;
+  width: 3px;
+  height: 1em;
+  background-color: #fff;
+  margin-left: 5px;
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.btn {
+  padding: 12px 32px;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  background: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+  cursor: pointer;
+  margin: 0 10px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.btn:hover {
+  background: #fff;
+  color: #000;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 /* 背景图片的遮罩 */
@@ -32,21 +95,6 @@
   left: 0;
   background-color: rgba(0, 0, 0);
   opacity: 0.4;
-}
-
-/* 内容 */
-.hero .content {
-  /* 绝对定位 */
-  position: absolute;
-  /* 动画 */
-  transform: translate(-50%, -50%);
-  /* 文字位置 */
-  top: 50%;
-  left: 50%;
-  /* 文本对齐 */
-  text-align: center;
-  /* 文本阴影 */
-  text-shadow: 0 0 10px rgba(221, 214, 11, 0.595);
 }
 
 /* 标题 */
@@ -83,37 +131,6 @@
   min-width: 1ch;
 }
 
-/* 光标样式 */
-.cursor {
-  /* 显示方式 */
-  display: inline-block;
-  /* 宽度 */
-  width: 7px;
-  /* 高度 */
-  height: 5rem;
-  /* 背景颜色 */
-  background-color: #dbf723;
-  /* 左侧间距 */
-  margin-left: 10px;
-  /* 动画 */
-  animation: blink 1s infinite;
-  align-self: center;
-}
-
-@keyframes blink {
-  0% {
-    opacity: 1;
-  }
-
-  50% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
 @keyframes glowPulse {
   0% {
     text-shadow: 0 0 10px rgba(221, 214, 11, 0.3);
@@ -128,55 +145,6 @@
   }
 }
 
-/* button样式 */
-.btn {
-  padding: 10px 20px;
-  /* 按钮颜色 */
-  color: rgb(124, 117, 32);
-  /* 按钮大小 */
-  font-size: 2rem;
-  /* 按钮间距 */
-  margin: 1rem 1rem;
-  /* 按钮轮廓颜色 */
-  border: 2px solid rgb(215, 202, 53);
-  /* 相对定位 */
-  position: relative;
-  /* 背景颜色 */
-  background-color: rgba(0, 0, 0, 0);
-  /* 用户选择 */
-  user-select: none;
-  /* 用户选择 */
-  -webkit-user-select: none;
-  touch-action: manipulation;
-}
-
-/* 动画后样式 */
-.btn:after {
-  /* 内容 */
-  content: "";
-  /* 背景颜色 */
-  background-color: #ffe54c;
-  /* 宽度 */
-  width: 100%;
-  /* 高度 */
-  height: 100%;
-  /* 层级 */
-  z-index: -1;
-  /* 绝对定位 */
-  position: absolute;
-  /* 错位 */
-  top: 7px;
-  left: 7px;
-  /* 动画 */
-  transition: 0.2s;
-}
-
-/* 按钮悬停 */
-.btn:hover:after {
-  top: 0px;
-  left: 0px;
-}
-
 @media screen and (max-width: 480px) {
 
   .hero .content h1 {
@@ -184,7 +152,6 @@
     font-size: 2rem;
     width: 300px;
   }
-
 
   .cursor {
     /* 显示方式 */
@@ -204,7 +171,6 @@
 
   .btn {
     padding: 3px 8px;
-    /* 按钮颜色 */
     /* 按钮大小 */
     font-size: 1.5rem;
     /* 按钮间距 */

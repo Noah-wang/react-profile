@@ -8,6 +8,18 @@ import { translations } from "../../locales/translations";
 const HeroImg = () => {
   const { language } = useLanguage();
   const t = translations[language];
+  const [isLoading, setIsLoading] = useState(true);
+  const [imageLoaded, setImageLoaded] = useState(false);
+
+  // 预加载图片
+  useEffect(() => {
+    const img = new Image();
+    img.src = IntroImg;
+    img.onload = () => {
+      setIsLoading(false);
+      setImageLoaded(true);
+    };
+  }, []);
 
   // 根据当前语言选择旋转文本
   const rotateTextZh = ["嗨，我是王瑞泽", "欢迎访问我的个人网站"];
@@ -65,8 +77,17 @@ const HeroImg = () => {
   return (
     <div className="hero">
       <div className="mask">
-        {/* 背景图片 */}
-        <img className="into-img" src={IntroImg} alt="IntroImg" />
+        {isLoading && <div className="image-loading">Loading...</div>}
+        <img 
+          className="into-img" 
+          src={IntroImg} 
+          alt="IntroImg"
+          style={{ 
+            opacity: imageLoaded ? 1 : 0,
+            transition: 'opacity 0.5s ease-in-out'
+          }}
+          loading="eager"
+        />
       </div>
 
       {/* 内容 3D words*/}
